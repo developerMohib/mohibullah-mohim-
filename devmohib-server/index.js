@@ -36,7 +36,7 @@ const sendEmail = (name, email, message) => {
     from: process.env.ADMIN_EMAIL,
     to: email,
     subject: "Thank you for contacting us",
-    text: `Hello ${name} \n\nThank you for reaching out! We will get back to you soon.\n\nBest regards,\nAsset Management`,
+    text: `Hello ${name} \n\nThank you for reaching out! We will get back to you soon.\n\nBest regards,\nMohibullah Mohim`,
   };
 
   // MAIL TO ADMIN
@@ -70,7 +70,7 @@ app.post("/contact", async (req, res) => {
   console.log('userdata', userData)
   const name = userData?.name ;
   const email = userData?.email;
-  const subject = userData?.subject;
+  const subject = userData?.message;
 
   // To user and admin email
   sendEmail(name,email, subject);
