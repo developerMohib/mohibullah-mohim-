@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // MAIL TO USER AND ADMIN ------------------------------------
+
 const sendEmail = (name, email, message) => {
   // make a transporter
   const transporter = nodemailer.createTransport({
