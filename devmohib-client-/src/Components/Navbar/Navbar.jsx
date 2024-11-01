@@ -2,7 +2,7 @@ import "./navbar.css";
 import Swal from 'sweetalert2'
 import { useEffect, useState } from "react";
 import logo from "../../assets/devmohib.png";
-import { NavHashLink } from 'react-router-hash-link';
+import { NavHashLink } from 'react-router-hash-link';;
 import { Link } from "react-router-dom";
 import { BsUniversalAccessCircle } from "react-icons/bs";
 
