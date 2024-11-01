@@ -1,2 +1,0 @@
-ADMIN_EMAIL='mohibullahmohim2020@gmail.com'
-ADMIN_PASS='febcxtwwjvoqvnlf'
