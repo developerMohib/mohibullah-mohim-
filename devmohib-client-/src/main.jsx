@@ -4,12 +4,17 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout/Layout.jsx";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage.jsx";
+import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     errorElement: <ErrorPage />,    
+  },
+  {
+    path: "admin-login",
+    element: <AdminLogin />,   
   },
 ]);
 

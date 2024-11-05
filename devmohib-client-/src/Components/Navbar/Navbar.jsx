@@ -8,6 +8,7 @@ import logo from "../../assets/devmohib.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropDown, setDropDown] = useState(false)
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -98,10 +99,17 @@ const Navbar = () => {
               >
                 <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
                   <img
+                    onClick={() => setDropDown(!dropDown)}
                     src="https://firebasestorage.googleapis.com/v0/b/learnup-ac759.appspot.com/o/1730812441346mohib-web.jpg?alt=media&token=72412aaa-a874-47c3-844b-990ed0ef02df"
                     className="object-cover w-full h-full"
                     alt="User profile picture"
                   />
+                  {
+                    dropDown && <div className="absolute right-0 top-[120%] px-3 py-2 bg-white shadow-lg rounded-md">
+                      <p>About Admin</p>
+                    </div>
+                  }
+
                 </div>
 
                 <h3 className="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">
