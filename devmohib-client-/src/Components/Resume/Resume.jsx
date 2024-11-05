@@ -62,7 +62,7 @@ const Resume = () => {
         ))}
       </div>
 
-      <div className="text-center my-5">
+      <div className="text-center my-5 hidden">
         <button onClick={handleLoadMore}>
           {loading ? <ImSpinner9 className="animate-spin" /> : "Load More"}
         </button>
