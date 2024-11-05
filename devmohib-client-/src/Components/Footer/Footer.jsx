@@ -135,6 +135,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="md:pb-5 pb-5 text-center">
+        <p className="dark:text-white text-gray-900" >&#129392; <code>All Right Reserved</code> &copy; <code>Mohibullah Mohim &#129392;</code></p>
+      </div>
     </footer>
   );
 };

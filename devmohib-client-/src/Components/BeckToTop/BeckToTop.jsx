@@ -29,7 +29,7 @@ const BackToTop = () => {
       className={`back-to-top text-center ${myActive ? "active" : ""}`}
       onClick={scrollToTop}
     >
-      <button className="icon-style rounded-full p-5 animate-bounce border border-slate-500 hover:bg-orange-400">
+      <button className="icon-style rounded-full p-3 animate-bounce border border-slate-500 hover:bg-orange-400">
         {" "}
         <FiArrowUp />{" "}
       </button>
