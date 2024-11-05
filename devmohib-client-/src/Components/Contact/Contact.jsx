@@ -79,7 +79,7 @@ const Contact = () => {
         </div>
         <div className="lg:w-2/5 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
           <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
-            Feedback
+            Get in touch !
           </h2>
           <p className="leading-relaxed mb-5 text-gray-600">
             Feel Free and touch me with your beautiful idea !
