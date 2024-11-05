@@ -7,6 +7,8 @@ import Resume from "../../Components/Resume/Resume";
 import Service from "../../Components/Service/Service";
 
 const Home = () => {
+  // TO DO => Hire me button make clickable
+  
   return (
     <div className="container mx-auto px-6 py-4">
       <Hero />

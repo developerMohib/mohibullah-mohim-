@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
 import "./becktop.css";
 const BackToTop = () => {
-  const [isactive, setIsactive] = useState(false);
+  const [myActive, setMyActive] = useState(false);
 
   const handleScroll = () => {
     const scrolled = window.scrollY;
-    setIsactive(scrolled > 300);
+    setMyActive(scrolled > 300);
   };
 
   const scrollToTop = () => {
@@ -26,7 +26,7 @@ const BackToTop = () => {
 
   return (
     <div
-      className={`back-to-top text-center ${isactive ? "active" : ""}`}
+      className={`back-to-top text-center ${myActive ? "active" : ""}`}
       onClick={scrollToTop}
     >
       <button className="icon-style rounded-full p-5 animate-bounce border border-slate-500 hover:bg-orange-400">

@@ -1,16 +1,16 @@
 import { Typography } from "antd";
 import Aos from "aos";
 import { useEffect, useRef, useState } from "react";
-const { Text } = Typography;
+
 import { FaArrowDown } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiUser3Line } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
 
 const Banner = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef(null);
+  const { Text } = Typography;
 
   useEffect(() => {
     if (isModalOpen) {
@@ -79,7 +79,7 @@ const Banner = () => {
       <div className="container mx-auto flex px-5 py-5 md:flex-row flex-col items-center">
         <div className="lg:flex-grow flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <div>
-            
+
             <span className="flex justify-between">
               <img
                 className="animate-spin-slow w-8"
