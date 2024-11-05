@@ -6,15 +6,28 @@ import { FiDownload } from "react-icons/fi";
 import { ImSpinner9 } from "react-icons/im";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Hero = () => {
   const [loading, setLoading] = useState(false);
 
   const handleDownload = () => {
-    setLoading(true);
-    setTimeout(() => {
+    try {
+      // here code 
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        Swal.fire({
+          icon: "success",
+          title: "Please wait for your network speed",
+          showConfirmButton: false,
+          timer: 1000
+        });
+      }, 5500);
+    } catch (error) {
+      console.log("error ", error)
       setLoading(false);
-    }, 5500);
+    }
   };
 
   return (
