@@ -19,7 +19,7 @@ const SkillCard = ({ index, src, width, height }) => {
       custom={index}
       transition={{ delay: index * animationDelay }}
     >
-      <img src={src} width={width} height={height} alt="skill image" />
+      <img src={src} className="cursor-pointer"  width={width} height={height} alt="skill image" />
     </motion.div>
   );
 };

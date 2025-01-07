@@ -53,6 +53,7 @@ const Skills = () => {
           {Skill_data?.map((image, index) => (
             <SkillCard
               key={index}
+              name={image.skill_name}
               src={image.Image}
               width={image.width}
               height={image.height}
