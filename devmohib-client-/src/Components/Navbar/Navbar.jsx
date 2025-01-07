@@ -1,7 +1,8 @@
 import "./navbar.css";
 import Swal from 'sweetalert2';
 import { useEffect, useState } from "react";
-// import { NavHashLink } from 'react-router-hash-link';
+import { HashRouter } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { Link } from "react-router-dom";
 import { BsUniversalAccessCircle } from "react-icons/bs";
 import logo from "../../assets/devmohib.png";
@@ -73,13 +74,9 @@ const Navbar = () => {
           >
             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
               {navLinks?.map((link, index) => (
-                <Link
-                  key={index}
-                  to={link.path}
-                  className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
+                <HashLink className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" key={index} smooth to={link.path}>
                   {link.label}
-                </Link>
+                </HashLink>
               ))}
             </div>
 
