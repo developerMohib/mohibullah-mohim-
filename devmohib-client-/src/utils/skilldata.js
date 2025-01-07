@@ -6,9 +6,15 @@ export const Skill_data = [
       width: 80,
       height: 80,
     },
+    // {
+    //   skill_name: "Css",
+    //   Image: "/css.png",
+    //   width: 80,
+    //   height: 80,
+    // },
     {
-      skill_name: "Css",
-      Image: "/css.png",
+      skill_name: "Type Script",
+      Image: "/ts.png",
       width: 80,
       height: 80,
     },
@@ -18,12 +24,12 @@ export const Skill_data = [
       width: 65,
       height: 65,
     },
-    {
-      skill_name: "Tailwind Css",
-      Image: "/tailwind.png",
-      width: 80,
-      height: 80,
-    },
+    // {
+    //   skill_name: "Tailwind Css",
+    //   Image: "/tailwind.png",
+    //   width: 80,
+    //   height: 80,
+    // },
     {
       skill_name: "React",
       Image: "/react.png",
@@ -36,12 +42,12 @@ export const Skill_data = [
       width: 80,
       height: 80,
     },
-    {
-      skill_name: "Framer Motion",
-      Image: "/framer.png",
-      width: 80,
-      height: 80,
-    },
+    // {
+    //   skill_name: "Framer Motion",
+    //   Image: "/framer.png",
+    //   width: 80,
+    //   height: 80,
+    // },
     {
       skill_name: "Stripe Payment",
       Image: "/stripe.webp",
@@ -49,27 +55,33 @@ export const Skill_data = [
       height: 80,
     },
     {
-      skill_name: "Node js",
-      Image: "/node-js.png",
+      skill_name: "Redux",
+      Image: "/redux.png",
       width: 80,
       height: 80,
     },
-    {
-      skill_name: "Mongo db",
-      Image: "/mongodb.png",
-      width: 40,
-      height: 40,
-    },
+    // {
+    //   skill_name: "Node js",
+    //   Image: "/node-js.png",
+    //   width: 80,
+    //   height: 80,
+    // },
+    // {
+    //   skill_name: "Mongo db",
+    //   Image: "/mongodb.png",
+    //   width: 40,
+    //   height: 40,
+    // },
   
   ];
     
   export const Frontend_skill = [
-    {
-      skill_name: "Html 5",
-      Image: "/html.png",
-      width: 80,
-      height: 80,
-    },
+    // {
+    //   skill_name: "Html 5",
+    //   Image: "/html.png",
+    //   width: 80,
+    //   height: 80,
+    // },
     {
       skill_name: "Css",
       Image: "/css.png",
@@ -77,47 +89,36 @@ export const Skill_data = [
       height: 80,
     },
     {
-      skill_name: "Java Script",
-      Image: "/js.png",
-      width: 65,
-      height: 65,
-    },
-    {
       skill_name: "Tailwind Css",
       Image: "/tailwind.png",
       width: 80,
       height: 80,
     },
+    // {
+    //   skill_name: "JavaScript",
+    //   Image: "/js.png",
+    //   width: 65,
+    //   height: 65,
+    // },
+    
     {
       skill_name: "Material UI",
       Image: "/mui.png",
       width: 80,
       height: 80,
     },
-    {
-      skill_name: "React",
-      Image: "/react.png",
-      width: 80,
-      height: 80,
-    },
     // {
-    //   skill_name: "Redux",
-    //   Image: "/redux.png",
+    //   skill_name: "React",
+    //   Image: "/react.png",
     //   width: 80,
     //   height: 80,
-    // },
+    // },    
     // {
     //   skill_name: "React Query",
     //   Image: "/reactquery.png",
     //   width: 80,
     //   height: 80,
-    // },
-    {
-      skill_name: "Type Script",
-      Image: "/ts.png",
-      width: 80,
-      height: 80,
-    },
+    // },    
     {
       skill_name: "Next js 13",
       Image: "/next.png",
@@ -140,9 +141,15 @@ export const Skill_data = [
       height: 80,
     },
     {
-      skill_name: "Mongo db",
+      skill_name: "Mongo DB",
       Image: "/mongodb.png",
       width: 40,
+      height: 40,
+    },
+    {
+      skill_name: "Mongoose",
+      Image: "/mongoose.png",
+      width: 80,
       height: 40,
     },
     {

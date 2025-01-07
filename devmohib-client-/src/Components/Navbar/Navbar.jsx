@@ -21,9 +21,9 @@ const Navbar = () => {
 
   const handleBtn = () => {
     Swal.fire({
-      icon: "error",
+      icon: "info",
       title: "Oops...",
-      text: "Something went wrong!",
+      text: "There has no special thing yet!",
     });
   };
 
