@@ -11,20 +11,25 @@
   }
   :root {
   --primary-color: rgb(34, 197, 94); /* Green for primary elements (e.g., buttons, headers) */
-  --secondary-color: rgb(244, 63, 94); /* Rose for secondary elements (e.g., links, highlights) */
+  --secondary-color:rgb(239, 68, 68); /* Rose for secondary elements (e.g., links, highlights) */
   --ternary-color: rgb(59, 130, 246); /* Blue for tertiary elements (e.g., hover states) */
   --bg-primary-color: rgb(21, 21, 21); /* Black for main background */
+  --bg-secondary-color: rgb(228, 228, 228); /* Black for main background */
   --border-primary-color: rgb(134, 134, 134); /* Gray for borders */
   --text-color :rgb(21, 21, 21); 
-  --text-sec-color :rgb(237, 237, 237); 
+  --text-fixed-white :rgb(255, 255, 255);
+  --text-fixed-black:rgb(0,0,0);
+  --placeholder-color:rgba(21, 21, 21, 0.345);
   }
  
 [data-theme="dark"] {
   --primary-color: rgb(52, 211, 153); /* Lighter emerald green for better contrast on dark backgrounds */
-  --secondary-color: rgb(251, 113, 133); /* Softer rose to avoid harshness */
+  --secondary-color:rgb(239, 68, 68); /* Softer rose to avoid harshness */
   --ternary-color: rgb(96, 165, 250); /* Lighter blue for hover or accents */
-  --bg-primary-color: rgb(17, 24, 39); /* Slightly lighter black (gray-900) for depth */
+  --bg-primary-color: rgb(228, 228, 228); /* Slightly lighter black (gray-900) for depth */
+  --bg-secondary-color: rgb(17, 24, 39); /* Black for main background */
   --border-primary-color: rgb(75, 85, 99); /* Darker gray for borders in dark mode */
-  --text-color: rgb(193, 193, 193); /* Light gray for text (instead of pure white) */
+  --text-color: rgb(193, 193, 193); /* Light gray for text (instead of pure white) */  
+  --placeholder-color:rgba(21, 21, 21, 0.486);
 }
 }

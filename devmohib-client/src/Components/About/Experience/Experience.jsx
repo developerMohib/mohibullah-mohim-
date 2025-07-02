@@ -4,7 +4,7 @@ import { Timeline } from "antd";
 const Experience = () => {
   return (
     <Timeline
-      mode="alternate"
+      mode="alternate" className="text-textColor"
       items={[
         {
           children: "Front End Development with React, Next, Typescript",
