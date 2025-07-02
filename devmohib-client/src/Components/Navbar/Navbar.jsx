@@ -37,7 +37,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`relative bg-white shadow top-0 ${isSticky ? "sticky-nav scrolled" : ""}`}>
+    <nav className={`relative shadow top-0 ${isSticky ? "sticky-nav scrolled" : ""}`}>
       <div className="container px-6 py-4 mx-auto">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center justify-between">
@@ -67,14 +67,14 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu */}
+          {/* desktop Menu */}
           <div
-            className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center ${isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full"
+            className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center ${isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full"
               }`}
           >
             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
               {navLinks?.map((link, index) => (
-                <HashLink className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" key={index} smooth to={link.path}>
+                <HashLink className="px-3 py-2 mx-3 mt-2 text-textColor hover:border-b hover:border-priColor transition-colors duration-300 transform rounded-md lg:mt-0" key={index} smooth to={link.path}>
                   {link.label}
                 </HashLink>
               ))}
@@ -83,7 +83,7 @@ const Navbar = () => {
             <div className="flex items-center mt-4 lg:mt-0">
               <button
                 onClick={handleBtn}
-                className="hidden items-center mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:outline-none"
+                className="hidden items-center mx-4 text-textColor transition-colors duration-300 transform lg:block focus:outline-none"
                 aria-label="accessibility button"
               >
                 <BsUniversalAccessCircle className="text-3xl" />
@@ -94,7 +94,7 @@ const Navbar = () => {
                 className="flex items-center focus:outline-none"
                 aria-label="toggle profile dropdown"
               >
-                <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                <div className="w-8 h-8 overflow-hidden border-2 border-borderPri rounded-full">
                   <img
                     onClick={() => setDropDown(!dropDown)}
                     src="https://firebasestorage.googleapis.com/v0/b/learnup-ac759.appspot.com/o/1730812441346mohib-web.jpg?alt=media&token=72412aaa-a874-47c3-844b-990ed0ef02df"
@@ -102,14 +102,14 @@ const Navbar = () => {
                     alt="User profile picture"
                   />
                   {
-                    dropDown && <div className="absolute right-0 top-[120%] px-3 py-2 bg-white shadow-lg rounded-md">
+                    dropDown && <div className="absolute right-0 top-[120%] px-3 py-2 shadow-lg rounded-md">
                       <p>About Admin</p>
                     </div>
                   }
 
                 </div>
 
-                <h3 className="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">
+                <h3 className="mx-2 text-textColor lg:hidden">
                   Mohibullah Mohim
                 </h3>
               </button>
