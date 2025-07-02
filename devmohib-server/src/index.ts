@@ -1,10 +1,20 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
+import bodyParser from 'body-parser';
+import helmet from 'helmet';
 import { errorHandler } from './middlewares/globalErrorHander';
+import { routes } from './routes/routes';
+
 const app: Application = express();
 
-app.use(cors());
+app.use(helmet());
+app.use(cors({ origin: process.env.ALLOWED_ORIGIN || '*' }));
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use('/api', routes);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('🚀 personal web server is running');
