@@ -4,7 +4,7 @@ import { Timeline } from "antd";
 const Education = () => {
   return (
     <Timeline
-      mode="alternate"
+      mode="alternate" className="text-textColor"
       items={[
         {
           children: ` 2020 to Present, Higher Education, I was admitted to the Mathematics Department at 'Sunamganj Government College, Bangladesh' in June 2020, and I am currently studying there.`,

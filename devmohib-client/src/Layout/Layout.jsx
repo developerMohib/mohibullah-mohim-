@@ -8,7 +8,7 @@ AOS.init();
 
 const Layout = () => {
   return (
-    <div className="overflow-x:hidden" >
+    <div className="overflow-x:hidden bg-bgSecColor" >
       <Preloader />
       <Navbar />
       <Home />

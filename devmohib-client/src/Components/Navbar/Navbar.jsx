@@ -6,6 +6,7 @@ import { HashLink } from 'react-router-hash-link';
 import { Link } from "react-router-dom";
 import { BsUniversalAccessCircle } from "react-icons/bs";
 import logo from "../../assets/devmohib.png";
+import ThemeController from "../themeController/ThemeController";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -113,6 +114,7 @@ const Navbar = () => {
                   Mohibullah Mohim
                 </h3>
               </button>
+              <ThemeController />
             </div>
           </div>
         </div>
