@@ -1,8 +1,8 @@
 import { Typewriter } from "react-simple-typewriter";
 import banner from "/mohibullah-mohim-hero.jpg";
+import banner2 from "/ai-mohib-hero.png";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FiDownload } from "react-icons/fi";
-// import { NavHashLink } from "react-router-hash-link";
 import { ImSpinner9 } from "react-icons/im";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -58,12 +58,12 @@ const Hero = () => {
       data-aos="fade-up"
       data-aos-duration="1000"
       data-aos-anchor-placement="center-bottom"
-      className="flex items-center justify-center md:p-5"
+      className="flex items-center justify-center"
     >
-      <div className="grid md:grid-cols-5 grid-cols-1 items-center gap-10 md:px-10">
+      <div className="grid md:grid-cols-5 grid-cols-1 items-center gap-10 md:px-10 pt-10">
         <div className="md:col-span-3">
           <h1 className="mb-2 text-3xl font-bold text-textColor">
-            <span className="text-priColor">Hi, </span>I am Junior{" "}
+            <span className="text-priColor">Hi, </span >I am Junior{" "}
             <br className="md:hidden" />
             <span className="text-secColor font-bold">
               <Typewriter
@@ -119,11 +119,11 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="md:col-span-2 mx-auto">
+        <div className="md:col-span-2 mx-auto flex items-center">
           <img
-            src={banner}
+            src={banner2}
             alt="Mohibullah Mohim"
-            className="md:w-96 w-72 rounded-full"
+            className="h-[400px]"
           />
         </div>
       </div>

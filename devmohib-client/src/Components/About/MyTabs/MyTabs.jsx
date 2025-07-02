@@ -10,7 +10,7 @@ const MyTabs = () => {
   const handleModeChange = (e) => {
     setMode(e.target.value);
   };
-
+  
   return (
     <div>
       <Radio.Group

@@ -74,7 +74,7 @@ const Banner = () => {
       data-aos="fade-up"
       data-aos-duration="1000"
       data-aos-anchor-placement="center-bottom"
-      className="text-black body-font relative"
+      className="body-font relative text-textColor"
     >
       <div className="container mx-auto flex px-5 py-5 md:flex-row flex-col items-center">
         <div className="lg:flex-grow flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
@@ -88,7 +88,7 @@ const Banner = () => {
               />
               <img className="animate-spin w-8" src="/redux.png" alt="" />
             </span>
-            <Text data-aos="fade-up" data-aos-duration="2000" code>
+            <Text  className="text-textColor" data-aos="fade-up" data-aos-duration="2000" code>
               Your new idea will make me a happy. So keep rocking !
             </Text>
           </div>
@@ -103,7 +103,7 @@ const Banner = () => {
           <div data-aos="fade-right" className="flex justify-center">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex text-white bg-blue-500 py-2 px-4 focus:outline-none hover:bg-opacity-80 rounded text-sm"
+              className="inline-flex text-bgSecColor bg-priColor py-2 px-4 focus:outline-none hover:bg-opacity-80 rounded text-sm"
             >
               Book me now
             </button>
@@ -124,16 +124,16 @@ const Banner = () => {
                   data-aos="zoom-in"
                   data-aos-duration="600"
                 >
-                  <div className="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
+                  <div className="relative py-8 px-5 md:px-10 bg-textWhite shadow-md rounded border border-gray-400">
                     {/* Modal content */}
-                    <div className="w-full flex justify-start text-gray-600 mb-3"></div>
-                    <h1 className="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4">
+                    <div className="w-full flex justify-start text-textBlack mb-3"></div>
+                    <h1 className="text-textBlack font-lg font-bold tracking-normal leading-tight mb-4">
                       Drop Your Fascinating Idea{" "}
                     </h1>
                     {/* Name part Start */}
                     <label
                       htmlFor="name"
-                      className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+                      className="text-textBlack text-sm font-bold leading-tight tracking-normal"
                     >
                       Name
                     </label>
@@ -153,12 +153,12 @@ const Banner = () => {
                     {/* Email part start */}
                     <label
                       htmlFor="email"
-                      className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+                      className="text-textBlack text-sm font-bold leading-tight tracking-normal"
                     >
                       Email
                     </label>
                     <div className="relative mb-5 mt-2">
-                      <div className="absolute text-gray-600 flex items-center px-4 border-r h-full">
+                      <div className="absolute text-textBlack flex items-center px-4 border-r h-full">
                         <MdOutlineMailOutline className="text-black " />
                       </div>
                       <input
@@ -173,7 +173,7 @@ const Banner = () => {
                     {/* Message Part Start */}
                     <label
                       htmlFor="message"
-                      className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+                      className="text-textBlack text-sm font-bold leading-tight tracking-normal"
                     >
                       Your Query
                     </label>
@@ -181,7 +181,7 @@ const Banner = () => {
                       <textarea
                         id="message"
                         name="message"
-                        className="mb-8 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-24 flex items-center pl-3 text-sm border-gray-300 rounded border "
+                        className="mb-8 text-textBlack focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-24 flex items-center pl-3 text-sm border-gray-300 rounded border "
                         placeholder="Your Query"
                       ></textarea>
                     </div>
@@ -189,7 +189,7 @@ const Banner = () => {
                     <div className="flex items-center justify-start w-full">
                       <button
                         type="submit"
-                        className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"
+                        className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-priColor rounded text-textWhite px-8 py-2 text-sm"
                       >
                         Submit
                       </button>

@@ -1,23 +1,23 @@
 
 const Service = () => {
   return (
-    <div id="service" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
+    <div id="service" className="mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-      <h2 className="font-headline text-2xl font-semibold sm:text-3xl text-center">
+      <h2 className="text-2xl font-semibold sm:text-3xl text-center text-textColor">
         Revamp Your Website in Three Steps
       </h2>
 
       <div className="grid sm:grid-cols-3 gap-16 sm:gap-8 mt-16 sm:mt-24">
         <div className="text-center">
           <div className="relative w-20 h-20 sm:w-28 sm:h-28 lg:w-32 lg:h-32 mx-auto left-2">
-            <div className="z-10 relative w-full h-full bg-white rounded-full border border-gray-300 shadow flex items-center justify-center">
+            <div className="z-10 relative w-full h-full bg-textWhite rounded-full border border-borderPri shadow flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="0.5"
                 stroke="currentColor"
-                className="text-gray-500 w-1/2 h-1/2"
+                className="text-priColor w-1/2 h-1/2"
                 alt="Import icon"
               >
                 <path
@@ -27,25 +27,25 @@ const Service = () => {
                 ></path>
               </svg>
             </div>
-            <div className="absolute inset-0 -translate-x-2 -translate-y-2 bg-blue-500 rounded-full"></div>
+            <div className="absolute inset-0 -translate-x-2 -translate-y-2 bg-terColor rounded-full"></div>
           </div>
-          <h3 className="font-headline text-xl sm:text-2xl mt-6 sm:mt-10">
+          <h3 className="text-textColor text-xl sm:text-2xl mt-6 sm:mt-10">
             1. Reimagine
           </h3>
-          <p className="leading-relaxed mt-4">
+          <p className="leading-relaxed mt-4 text-textColor">
             Begin by envisioning the new look and features for your website.
           </p>
         </div>
         <div className="text-center">
           <div className="relative w-20 h-20 sm:w-28 sm:h-28 lg:w-32 lg:h-32 mx-auto left-2">
-            <div className="z-10 relative w-full h-full bg-white rounded-full border border-gray-300 shadow flex items-center justify-center">
+            <div className="z-10 relative w-full h-full bg-textWhite rounded-full border border-borderPri shadow flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="0.5"
                 stroke="currentColor"
-                className="text-gray-500 w-1/2 h-1/2"
+                className="text-priColor w-1/2 h-1/2"
                 alt="Translate icon"
               >
                 <path
@@ -55,26 +55,26 @@ const Service = () => {
                 ></path>
               </svg>
             </div>
-            <div className="absolute inset-0 -translate-x-2 -translate-y-2 bg-blue-500 rounded-full"></div>
+            <div className="absolute inset-0 -translate-x-2 -translate-y-2 bg-terColor rounded-full"></div>
           </div>
-          <h3 className="font-headline text-xl sm:text-2xl mt-6 sm:mt-10">
+          <h3 className="text-textColor text-xl sm:text-2xl mt-6 sm:mt-10">
             2. Redesign
           </h3>
-          <p className="leading-relaxed mt-4">
+          <p className="leading-relaxed mt-4 text-textColor">
             Collaborate with your design and development team to give your
             website a fresh and modern design.
           </p>
         </div>
         <div className="text-center">
           <div className="relative w-20 h-20 sm:w-28 sm:h-28 lg:w-32 lg:h-32 mx-auto left-2">
-            <div className="z-10 relative w-full h-full bg-white rounded-full border border-gray-300 shadow flex items-center justify-center">
+            <div className="z-10 relative w-full h-full bg-textWhite rounded-full border border-borderPri shadow flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth=".5"
                 stroke="currentColor"
-                className="text-gray-500 w-1/2 h-1/2"
+                className="text-priColor w-1/2 h-1/2"
                 alt="Export icon"
               >
                 <path
@@ -84,12 +84,12 @@ const Service = () => {
                 ></path>
               </svg>
             </div>
-            <div className="absolute inset-0 -translate-x-2 -translate-y-2 bg-blue-500 rounded-full"></div>
+            <div className="absolute inset-0 -translate-x-2 -translate-y-2 bg-terColor rounded-full"></div>
           </div>
-          <h3 className="font-headline text-xl sm:text-2xl mt-6 sm:mt-10">
+          <h3 className="text-textColor text-xl sm:text-2xl mt-6 sm:mt-10">
             3. Relaunch
           </h3>
-          <p className="leading-relaxed mt-4">
+          <p className="leading-relaxed mt-4 text-textColor">
             After the redesign, relaunch your website and welcome your audience
             to the new experience.
           </p>
