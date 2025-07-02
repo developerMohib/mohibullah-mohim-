@@ -11,22 +11,44 @@ import Swal from "sweetalert2";
 const Hero = () => {
   const [loading, setLoading] = useState(false);
 
-  const handleDownload = () => {
+  const handleDownload =async () => {
     try {
-      // here code 
       setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        Swal.fire({
-          icon: "success",
-          title: "Please wait for your network speed",
-          showConfirmButton: false,
-          timer: 1000
-        });
-      }, 5500);
-    } catch (error) {
-      console.log("error ", error)
+      // Replace with your Google Drive direct download link
+      const driveLink = "https://drive.google.com/uc?export=download&id=1xDyOGbfvMuMbei_tR7ipN_V20NQLq2WQ";
+      
+      // Create a temporary anchor element to trigger the download
+      const link = document.createElement("a");
+      link.href = driveLink;
+      link.download = "Resume.pdf"; // Optional: Set a default filename
+      link.setAttribute("aria-label", "Download resume file");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Simulate network delay for user feedback
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
       setLoading(false);
+      Swal.fire({
+        icon: "success",
+        title: "Download started!",
+        text: "Please wait, depending on your network speed.",
+        showConfirmButton: false,
+        timer: 1500,
+        background: document.documentElement.getAttribute("data-theme") === "dark" ? "#1f2937" : "#ffffff",
+        color: document.documentElement.getAttribute("data-theme") === "dark" ? "#e5e7eb" : "#111827",
+      });
+    } catch (error) {
+      console.error("Download error:", error);
+      setLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Download failed",
+        text: "Please try again later.",
+        showConfirmButton: true,
+        confirmButtonColor: "var(--primary-color)",
+      });
     }
   };
 
@@ -40,10 +62,10 @@ const Hero = () => {
     >
       <div className="grid md:grid-cols-5 grid-cols-1 items-center gap-10 md:px-10">
         <div className="md:col-span-3">
-          <h1 className="mb-2 text-3xl font-bold">
-            <span className="text-green-500">Hi, </span>I am Junior{" "}
+          <h1 className="mb-2 text-3xl font-bold text-textColor">
+            <span className="text-priColor">Hi, </span>I am Junior{" "}
             <br className="md:hidden" />
-            <span className="text-red-700 font-bold">
+            <span className="text-secColor font-bold">
               <Typewriter
                 words={[
                   "MERN Stack Developer",
@@ -60,7 +82,7 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="my-6 leading-7">
+          <p className="my-6 leading-7 text-textColor">
             I’m a dedicated front-end developer with a knack for creating
             dynamic and visually appealing web applications. With a strong
             foundation in HTML, CSS, JavaScript, and Next.js, I specialize in building responsive, user-friendly interfaces.
@@ -72,7 +94,7 @@ const Hero = () => {
           <div className="flex justify-center space-x-5">
             <Link
               to="/#contact"
-              className="flex w-full items-center justify-center gap-1 rounded-2xl bg-rose-500 p-5 py-3 font-semibold text-white hover:bg-rose-700"
+              className="flex w-full items-center justify-center gap-1 rounded-2xl bg-secColor p-5 py-3 font-semibold text-textWhite hover:bg-secColor"
             >
               Hire Me <IoMdHeartEmpty className="h-6 w-6 animate-ping" aria-label="Heart icon" />
             </Link>
@@ -80,7 +102,7 @@ const Hero = () => {
 
             <button
               onClick={handleDownload}
-              className={`flex w-full items-center justify-center gap-2 rounded-2xl bg-green-500 p-5 py-3 font-semibold ${loading ? "cursor-not-allowed opacity-50" : "hover:bg-gray-300"
+              className={`flex w-full items-center justify-center gap-2 rounded-2xl bg-priColor p-5 py-3 font-semibold ${loading ? "cursor-not-allowed opacity-50" : "hover:bg-gray-300"
                 }`}
               disabled={loading}
               aria-live="polite"
