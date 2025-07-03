@@ -5,6 +5,7 @@ import BeckToTop from "../../Components/BeckToTop/BeckToTop";
 import Blog from "../../Components/blog/Blog";
 import Contact from "../../Components/Contact/Contact";
 import Resume from "../../Components/Resume/Resume";
+import Reviews from "../../Components/reviews/Reviews";
 import Service from "../../Components/Service/Service";
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
       <Resume />
       <Service />
       <Blog />
+      <Reviews />
       <Contact />
       <BeckToTop />
     </div>
