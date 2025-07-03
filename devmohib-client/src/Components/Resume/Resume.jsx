@@ -3,6 +3,7 @@ import { Done_work } from "../../utils/doneWork";
 import { ImSpinner9 } from "react-icons/im";
 import { useState } from "react";
 import { Typography } from "antd";
+import HeadingText from "../Reuseable/HeadingText";
 const { Text } = Typography;
 
 const Resume = () => {
@@ -14,7 +15,8 @@ const Resume = () => {
   };
 
   return (
-    <>
+    <section>
+      <HeadingText mainTitle="My Recent" highlightTitle="Projects" mainDescription="Be the first to know when I am" highlightDescription="mastering" />
       <div
         id="project"
         data-aos="fade-up"
@@ -23,7 +25,7 @@ const Resume = () => {
       >
         {Done_work?.slice(0, 3).map((work, index) => (
           <div className="grid-cols-1" key={work.id || index}>
-            <div className="group relative block bg-black my-5 ">
+            <div className="group relative block bg-bgSecColor my-5 ">
               <img
                 alt={work.projectName || "Project image"}
                 src={work.Image}
@@ -67,7 +69,7 @@ const Resume = () => {
           {loading ? <ImSpinner9 className="animate-spin" /> : "Load More"}
         </button>
       </div>
-    </>
+    </section>
   );
 };
 
