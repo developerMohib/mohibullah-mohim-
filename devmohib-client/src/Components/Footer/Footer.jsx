@@ -15,7 +15,7 @@ const Footer = () => {
               <input
                 id="email"
                 type="text"
-                className="px-4 py-2 text-textColor bg-placeholer border rounded-md focus:border-terColor focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-terColor"
+                className="px-4 py-2 text-textColor placeholder-gray-500 bg-placeholer border rounded-md focus:border-terColor focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-terColor"
                 placeholder="Email Address"
               />
 

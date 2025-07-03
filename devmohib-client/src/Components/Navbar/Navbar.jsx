@@ -51,7 +51,7 @@ const Navbar = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none"
+                className="text-textColor focus:outline-none"
                 aria-label="toggle menu"
                 aria-expanded={isOpen}
               >
@@ -114,6 +114,7 @@ const Navbar = () => {
                   Mohibullah Mohim
                 </h3>
               </button>
+              
               <ThemeController />
             </div>
           </div>

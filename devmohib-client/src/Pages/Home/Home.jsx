@@ -2,6 +2,7 @@ import About from "../../Components/About/About";
 import Banner from "../../Components/Banner/Banner";
 import Hero from "../../Components/Banner/Hero";
 import BeckToTop from "../../Components/BeckToTop/BeckToTop";
+import Blog from "../../Components/blog/Blog";
 import Contact from "../../Components/Contact/Contact";
 import Resume from "../../Components/Resume/Resume";
 import Service from "../../Components/Service/Service";
@@ -16,6 +17,7 @@ const Home = () => {
       <About />
       <Resume />
       <Service />
+      <Blog />
       <Contact />
       <BeckToTop />
     </div>
