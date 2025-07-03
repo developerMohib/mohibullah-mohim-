@@ -19,12 +19,13 @@ const Reviews = () => {
     return (
         <section className="mt-10">
             <HeadingText mainTitle={"What say our"} highlightTitle={"clients"} mainDescription={"We’re proud to have earned the trust of businesses around the world. Here’s what some of them have to say about working with us."} highlightDescription={"Discover how our clients feel about partnering with us."} />
-            <div className="container px-6 py-10 mx-auto"> 
+            <div className="container px-6 py-10 mx-auto">
                 <div className="grid grid-cols-1 gap-8 mx-auto mt-8 lg:grid-cols-2 xl:mt-10 max-w-7xl">
                     {data?.map((item, idx) => (
                         <div
                             key={idx}
-                            className="p-6 md:p-8"
+                            className={`p-6 md:p-8 ${idx % 2 === 1 ? "lg:border-l lg:border-borderPri" : ""
+                                }`}
                         >
                             <p className="leading-loose text-textColor">
                                 “{item.quote}”
