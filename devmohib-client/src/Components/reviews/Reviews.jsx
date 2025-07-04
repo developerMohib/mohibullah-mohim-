@@ -3,9 +3,8 @@ import useReviews from '../../hook/useReviews';
 import HeadingText from '../Reuseable/HeadingText';
 
 const Reviews = () => {
-    const { isPending, reviews = [] } = useReviews();
+    const { isPending, data: reviews = [] } = useReviews();
     if (isPending) return 'Loading...'
-
 
     return (
         <section className="md:mt-16">

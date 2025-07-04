@@ -12,41 +12,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOneBlog = exports.getBlogs = void 0;
-const blogSchema_1 = __importDefault(require("../model/blogSchema"));
-const getBlogs = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getOneProject = exports.getProjects = void 0;
+const projectsSchema_1 = __importDefault(require("../model/projectsSchema"));
+const getProjects = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const blogs = yield blogSchema_1.default.find();
-        if (!blogs.length) {
+        const projects = yield projectsSchema_1.default.find();
+        if (!projects.length) {
             res.status(404).json({
                 success: false,
-                message: 'No blogs found in the database.',
+                message: 'No projects found in the database.',
                 data: [],
             });
             return;
         }
         res.status(200).json({
             success: true,
-            message: 'Blogs are retrived successfully',
-            data: blogs,
+            message: 'Project are retrived successfully',
+            data: projects,
         });
     }
     catch (error) {
         next(error);
     }
 });
-exports.getBlogs = getBlogs;
-const getOneBlog = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getProjects = getProjects;
+const getOneProject = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req === null || req === void 0 ? void 0 : req.params.id;
     try {
-        const post = yield blogSchema_1.default.findById(id);
-        if (!post) {
-            res.status(404).json({ message: 'Post not found' });
+        const project = yield projectsSchema_1.default.findById(id);
+        if (!project) {
+            res.status(404).json({ message: 'Project not found' });
             return;
         }
         res.status(200).json({
             success: true,
-            data: post,
+            data: project,
         });
     }
     catch (err) {
@@ -54,4 +54,4 @@ const getOneBlog = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
         next(err);
     }
 });
-exports.getOneBlog = getOneBlog;
+exports.getOneProject = getOneProject;

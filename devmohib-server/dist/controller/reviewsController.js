@@ -17,6 +17,14 @@ const reviewsSchema_1 = __importDefault(require("../model/reviewsSchema"));
 const getReviews = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const reviews = yield reviewsSchema_1.default.find();
+        if (!reviews.length) {
+            res.status(404).json({
+                success: false,
+                message: 'No reviews found in the database.',
+                data: [],
+            });
+            return;
+        }
         res.status(200).json({
             success: true,
             message: 'Reviews are retrived successfully',

@@ -1,7 +1,8 @@
 import express from 'express';
 import { sendMail } from '../controller/sendmailController';
 import { getReviews } from '../controller/reviewsController';
-import { getBlogs } from '../controller/blogsController';
+import { getBlogs, getOneBlog } from '../controller/blogsController';
+import { getOneProject, getProjects } from '../controller/projectController';
 const router = express.Router();
 // email sender routes
 router.post('/sendMail', sendMail);
@@ -11,4 +12,10 @@ router.get('/reviews', getReviews);
 
 // blogs routes
 router.get('/blogs', getBlogs);
+router.get('/details/:id', getOneBlog);
+
+// projects routes
+router.get('/projects', getProjects);
+router.get('/project-details/:id', getOneProject);
+
 export const routes = router;

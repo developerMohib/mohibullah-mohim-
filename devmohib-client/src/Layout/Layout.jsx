@@ -1,10 +1,10 @@
 import Footer from "../Components/Footer/Footer";
 import Navbar from "../Components/Navbar/Navbar";
 import Preloader from "../Components/Preloader/Preloader";
-import Home from "../Pages/Home/Home";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import CursorPointer from "../Components/Reuseable/CursorPointer";
+import { Outlet } from "react-router-dom";
 AOS.init();
 
 const Layout = () => {
@@ -13,7 +13,7 @@ const Layout = () => {
       <CursorPointer />
       <Preloader />
       <Navbar />
-      <Home />
+      <Outlet />
       <Footer />
     </div>
   );
