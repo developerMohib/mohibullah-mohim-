@@ -8,14 +8,6 @@ export const getBlogs = async (
 ) => {
   try {
     const blogs = await BlogPost.find();
-    if (!blogs.length) {
-      res.status(404).json({
-        success: false,
-        message: 'No blogs found in the database.',
-        data: [],
-      });
-      return;
-    }
 
     res.status(200).json({
       success: true,
