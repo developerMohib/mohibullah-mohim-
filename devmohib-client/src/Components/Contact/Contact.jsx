@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import axiosInstance from "../../hook/useAxios"
+import HeadingText from "../Reuseable/HeadingText";
 
 const Contact = () => {
 
@@ -49,8 +50,9 @@ const Contact = () => {
   };
 
   return (
-    <>
-      <section
+    <section >
+      <HeadingText mainTitle={"Let's work "} highlightTitle={"together!"} mainDescription={"Turn ideas into robust applications."} highlightDescription={"Let's elevate digital landscapes together"} intro={"Hit up me"} />
+      <div
         id="contact"
         data-aos="fade-up"
         data-aos-duration="1000"
@@ -158,8 +160,9 @@ const Contact = () => {
             </p>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+
+    </section>
   );
 };
 

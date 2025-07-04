@@ -5,17 +5,18 @@ import useBlogs from '../../hook/useBlogs';
 
 const Blog = () => {
     const { blogs, isPending, error } = useBlogs();
-
+    console.log('blogs', blogs)
     if (isPending) return 'Loading...'
 
     return (
-        <section className='md:my-10' >
-            <HeadingText mainTitle={"My latest "} highlightTitle={"Blogs"} mainDescription={"Here i share my"} highlightDescription={"challenging part"} />
+        <section className='md:my-14' >
+            <HeadingText mainTitle={"My latest "} highlightTitle={"Blogs"} mainDescription={"create content to share knowledge, tell stories, or promote ideas on a specific topic."} highlightDescription={"about engaging, informative, or entertaining"} intro={"Here i share my challenging part"} />
             <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
                 {blogs?.map((post, index) => (
-                    <div key={index}>
+                    <div key={index} className='border border-borderPri rounded-b-md'>
                         <div className="relative">
-                            <img className="object-cover object-center w-full h-64 rounded-lg lg:h-80" src={post.image} alt={post.title} />
+                            <span className='absolute top-0 right-0 text-textColor p-1 bg-bgSecColor'>Category</span>
+                            <img className="object-cover object-center w-full h-64 lg:h-80" src={post.image} alt={post.title} />
                             <div className="absolute bottom-0 flex p-3 bg-terColor">
                                 <img className="object-cover object-center w-10 h-10 rounded-full" src={post.author.image} alt={post.author.name} />
                                 <div className="mx-4">
@@ -24,10 +25,12 @@ const Blog = () => {
                                 </div>
                             </div>
                         </div>
-                        <h1 className="mt-6 text-xl font-semibold text-textColor">{post.title}</h1>
-                        <hr className="w-32 my-6" />
-                        <p className="text-sm text-textColor">{post.description}</p>
-                        <a href={post.link} className="inline-block mt-4 text-terColor underline">Read more</a>
+                        <div className='px-5 pb-5'>
+                            <h1 className="mt-6 text-xl font-semibold text-textColor">{post.title}</h1>
+                            <hr className="w-32 my-6" />
+                            <p className="text-sm text-textColor">{post.description}</p>
+                            <a href={post.link} className="inline-block mt-4 text-terColor hover:text-secColor underline">Read more</a>
+                        </div>
                     </div>
                 ))}
             </div>

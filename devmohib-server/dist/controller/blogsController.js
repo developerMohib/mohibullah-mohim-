@@ -16,11 +16,11 @@ exports.getBlogs = void 0;
 const blogSchema_1 = __importDefault(require("../model/blogSchema"));
 const getBlogs = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const reviews = yield blogSchema_1.default.find();
+        const blogs = yield blogSchema_1.default.find();
         res.status(200).json({
             success: true,
-            message: 'Reviews are retrived successfully',
-            data: reviews,
+            message: 'Blogs are retrived successfully',
+            data: blogs,
         });
     }
     catch (error) {

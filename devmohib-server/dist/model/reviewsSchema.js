@@ -6,6 +6,8 @@ const reviewSchema = new mongoose_1.Schema({
     name: String,
     position: String,
     image: String,
+}, {
+    timestamps: true
 });
 const Review = (0, mongoose_1.model)('Review', reviewSchema);
 exports.default = Review;

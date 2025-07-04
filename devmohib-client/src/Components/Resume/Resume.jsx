@@ -4,7 +4,6 @@ import { ImSpinner9 } from "react-icons/im";
 import { useState } from "react";
 import { Typography } from "antd";
 import HeadingText from "../Reuseable/HeadingText";
-const { Text } = Typography;
 
 const Resume = () => {
   const [loading, setLoading] = useState(false);
@@ -16,21 +15,21 @@ const Resume = () => {
 
   return (
     <section>
-      <HeadingText mainTitle="My Recent" highlightTitle="Projects" mainDescription="Be the first to know when I am" highlightDescription="mastering" />
+      <HeadingText mainTitle="My Recent" highlightTitle="Projects" mainDescription="Presenting a curated selection of my " highlightDescription="latest projects, crafted to impress and inspire both you and your potential clients" intro={"Be the first to know when I am mastering"} />
       <div
         id="project"
         data-aos="fade-up"
         data-aos-duration="3000"
-        className="md:grid grid-cols-3 gap-4"
+        className="md:grid grid-cols-3 gap-4 md:mt-14"
       >
         {Done_work?.slice(0, 3).map((work, index) => (
           <div key={index} className="rounded overflow-hidden shadow-lg flex flex-col">
-           
+
             <div className="relative">
               <Link to="/">
-              <img className="w-full" src="https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset in the mountains" />
-              <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-textBlack opacity-25">
-              </div>
+                <img className="w-full" src="https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset in the mountains" />
+                <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-textBlack opacity-25">
+                </div>
               </Link>
 
               <Link to="/">
@@ -45,6 +44,17 @@ const Resume = () => {
               <p className="text-textColor text-sm">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
               </p>
+            </div>
+
+            <div className="px-6 py-4">
+              <button className="py-1 text-xs font-regular text-textColor mr-1 flex flex-row items-center">
+                <svg className="h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
+                  </path>
+                </svg>
+                <Link to="/" target="_blank" className="ml-1 text-textColor hover:text-secColor"> Views Details</Link>
+              </button>
+
             </div>
             <div className="px-6 py-3 flex flex-row items-center justify-between bg-textWhite dark:opacity-50">
               <span className="py-1 text-xs font-regular text-textColor mr-1 flex flex-row items-center">
