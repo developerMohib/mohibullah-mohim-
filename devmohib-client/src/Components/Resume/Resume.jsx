@@ -1,50 +1,56 @@
 import { Link } from "react-router-dom";
-import { Done_work } from "../../utils/doneWork";
-import { ImSpinner9 } from "react-icons/im";
-import { useState } from "react";
-import { Typography } from "antd";
 import HeadingText from "../Reuseable/HeadingText";
-const { Text } = Typography;
+import useProjects from "../../hook/useProjects";
 
 const Resume = () => {
-  const [loading, setLoading] = useState(false);
-
-  // Function to handle "Load More" button click
-  const handleLoadMore = () => {
-    setLoading(true);
-  };
-
+  const { data: projects = [], isPending, isError, error } = useProjects();
+  if (isPending) return <p>Loading projects...</p>;
+  if (isError) return <p>Error: {error.message}</p>;
   return (
     <section>
-      <HeadingText mainTitle="My Recent" highlightTitle="Projects" mainDescription="Be the first to know when I am" highlightDescription="mastering" />
+      <HeadingText mainTitle="My Recent" highlightTitle="Projects" mainDescription="Presenting a curated selection of my " highlightDescription="latest projects, crafted to impress and inspire both you and your potential clients" intro={"Be the first to know when I am mastering"} />
       <div
         id="project"
         data-aos="fade-up"
         data-aos-duration="3000"
-        className="md:grid grid-cols-3 gap-4"
+        className="md:grid grid-cols-3 gap-4 md:mt-14"
       >
-        {Done_work?.slice(0, 3).map((work, index) => (
+        {projects?.slice(0, 3).map((work, index) => (
           <div key={index} className="rounded overflow-hidden shadow-lg flex flex-col">
-           
+
             <div className="relative">
               <Link to="/">
-              <img className="w-full" src="https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset in the mountains" />
-              <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-textBlack opacity-25">
-              </div>
+                <img className="w-full" src="https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sunset in the mountains" />
+                <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-textBlack opacity-25">
+                </div>
               </Link>
 
               <Link to="/">
                 <div className="text-xs absolute top-0 right-0 bg-terColor px-4 py-2 text-textWhite mt-3 mr-3 hover:bg-textWhite hover:text-terColor transition duration-500 ease-in-out">
-                  Category
+                  work.Category
                 </div>
               </Link>
             </div>
             <div className="px-6 py-4 mb-auto">
-              <Link to="/" className="font-medium text-textColor text-lg hover:text-secColor transition duration-500 ease-in-out inline-block mb-2">Simplest
-                Salad Recipe ever</Link>
-              <p className="text-textColor text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              <Link to="/" className="font-medium text-textColor text-lg hover:text-secColor transition duration-500 ease-in-out inline-block mb-2"> <span className="text-secColor" >Project Name :</span> {work.projectName}</Link>
+
+              <p className="font-medium text-textColor inline-block mb-2">
+                highlight: {work.highlight}
               </p>
+              <p className="text-textColor text-sm">
+                <span className="text-secColor" >Perpesctive :</span> {work.perspective}
+              </p>
+            </div>
+
+            <div className="px-6 py-4">
+              <button className="py-1 text-xs font-regular text-textColor mr-1 flex flex-row items-center">
+                <svg className="h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
+                  </path>
+                </svg>
+                <Link to={`project-details/${work._id}`} className="ml-1 text-textColor hover:text-secColor"> Views Details</Link>
+              </button>
+
             </div>
             <div className="px-6 py-3 flex flex-row items-center justify-between bg-textWhite dark:opacity-50">
               <span className="py-1 text-xs font-regular text-textColor mr-1 flex flex-row items-center">
@@ -56,24 +62,22 @@ const Resume = () => {
                     </g>
                   </g>
                 </svg>
-                <Link to="/" target="_blank" className="ml-1 text-textColor hover:text-secColor">Live Link</Link>
+                <Link to={work.liveLink} target="_blank" className="ml-1 text-textColor hover:text-secColor">Live Link</Link>
               </span>
               <span className="py-1 text-xs font-regular text-textColor mr-1 flex flex-row items-center">
                 <svg className="h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
                   </path>
                 </svg>
-                <Link to="/" target="_blank" className="ml-1 text-textColor hover:text-secColor"> Source Code</Link>
+                <Link to={work.sourceCode} target="_blank" className="ml-1 text-textColor hover:text-secColor"> Source Code</Link>
               </span>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="text-center my-5 hidden">
-        <button onClick={handleLoadMore}>
-          {loading ? <ImSpinner9 className="animate-spin" /> : "Load More"}
-        </button>
+      <div className="text-center mt-10 ">
+        <Link to="/all-projects" > <span className="border border-borderPri hover:bg-secColor hover:translate-y-1 p-2 rounded-md "> All Projects </span> </Link>
       </div>
     </section>
   );

@@ -5,6 +5,9 @@ const reviewSchema = new Schema({
   name: String,
   position: String,
   image: String,
+},
+{
+  timestamps : true
 });
 
 const Review = model('Review', reviewSchema);
