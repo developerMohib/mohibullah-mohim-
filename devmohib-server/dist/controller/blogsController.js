@@ -17,14 +17,6 @@ const blogSchema_1 = __importDefault(require("../model/blogSchema"));
 const getBlogs = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const blogs = yield blogSchema_1.default.find();
-        if (!blogs.length) {
-            res.status(404).json({
-                success: false,
-                message: 'No blogs found in the database.',
-                data: [],
-            });
-            return;
-        }
         res.status(200).json({
             success: true,
             message: 'Blogs are retrived successfully',
