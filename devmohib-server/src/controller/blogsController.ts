@@ -7,11 +7,11 @@ export const getBlogs = async (
   next: NextFunction,
 ) => {
   try {
-    const reviews = await BlogPost.find();
+    const blogs = await BlogPost.find();
     res.status(200).json({
       success: true,
-      message: 'Reviews are retrived successfully',
-      data: reviews,
+      message: 'Blogs are retrived successfully',
+      data: blogs,
     });
   } catch (error) {
     next(error);
