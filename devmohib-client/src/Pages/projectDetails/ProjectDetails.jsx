@@ -63,7 +63,7 @@ const ProjectDetails = () => {
                 </div>
 
                 <div className="lg:mt-0 lg:col-span-5 lg:flex">
-                    <img src="https://demo.themesberg.com/landwind/images/hero.png" alt="hero image" />
+                    <img className="h-full" src={image} alt="hero image" />
                 </div>
             </div>
         </section>

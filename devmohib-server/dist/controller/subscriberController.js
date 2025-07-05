@@ -37,6 +37,7 @@ const subscribe = (req, res, next) => __awaiter(void 0, void 0, void 0, function
         // Create new subscriber
         const newSubscriber = new subscriberSchema_1.default({ email });
         yield newSubscriber.save();
+        // Need to send confirmation email on subscriber email
         res.status(201).json({
             success: true,
             message: 'Thank you for subscribing!',
