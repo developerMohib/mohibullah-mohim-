@@ -31,7 +31,7 @@ export const subscribe = async (
     // Create new subscriber
     const newSubscriber = new subscriber({ email });
     await newSubscriber.save();
-
+    // Need to send confirmation email on subscriber email
     res.status(201).json({
       success: true,
       message: 'Thank you for subscribing!',
