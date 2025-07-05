@@ -12,7 +12,7 @@ const Blog = () => {
     return (
         <section className='md:my-14' >
             <HeadingText mainTitle={"My latest "} highlightTitle={"Blogs"} mainDescription={"create content to share knowledge, tell stories, or promote ideas on a specific topic."} highlightDescription={"about engaging, informative, or entertaining"} intro={"Here i share my challenging part"} />
-            <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-3">
                 {blogs?.map((post, index) => (
                     <div key={index} className='border border-borderPri rounded-b-md'>
                         <div className="relative">

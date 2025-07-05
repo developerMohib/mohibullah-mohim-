@@ -38,9 +38,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`relative shadow top-0 ${isSticky ? "sticky-nav scrolled" : ""}`}>
-      <div className="container px-6 py-4 mx-auto">
-        <div className="lg:flex lg:items-center lg:justify-between">
+    <nav className={`px-6 shadow top-0  ${isSticky ? "sticky-nav scrolled" : ""}`}>
+      <div className="py-4 px-10 max-w-7xl mx-auto w-full">
+        <div className="lg:flex lg:items-center lg:justify-between justify-center">
           <div className="flex items-center justify-between">
             <Link to="/">
               <img className="w-auto h-6 sm:h-7" src={logo} alt="Logo" />

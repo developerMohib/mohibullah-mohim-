@@ -1,7 +1,7 @@
 import { Typography } from "antd";
 import Aos from "aos";
 import { useEffect, useRef, useState } from "react";
-
+import axiosInstance from "../../hook/useAxios"
 import { FaArrowDown } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -43,30 +43,48 @@ const Banner = () => {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
+
     const name = e.target.name.value;
     const email = e.target.email.value;
     const message = e.target.message.value;
-    e.target.reset();
     const userData = { name, email, message };
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Success! Your message has been sent.",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    setIsModalOpen(false);
     try {
-      await fetch(`${import.meta.env.VITE_baseURL}/contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
+      // Show loading state (optional)
+      const loadingSwal = Swal.fire({
+        title: "Sending...",
+        allowOutsideClick: false,
+        didOpen: () => Swal.showLoading(),
       });
+
+      const response = await axiosInstance.post('/api/sendMail', { userData });
+
+      // Close loading before showing success
+      await loadingSwal.close();
+
+      if (response.data?.success) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Success! Your message has been sent.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        // Reset form only on success
+        e.target.reset();
+      } else {
+        throw new Error('Server responded with unsuccessful status');
+      }
     } catch (error) {
-      console.error(error);
+      console.error("Failed to send message:", error);
+
+      Swal.fire({
+        icon: "error",
+        title: "Failed to send",
+        text: error.response?.data?.message || "Please try again later.",
+      });
     }
+    setIsModalOpen(false)
   };
 
   return (
@@ -76,7 +94,7 @@ const Banner = () => {
       data-aos-anchor-placement="center-bottom"
       className="body-font relative text-textColor"
     >
-      <div className="container mx-auto flex px-5 py-5 md:flex-row flex-col items-center">
+      <div className="mx-auto flex px-5 py-5 md:flex-row flex-col items-center">
         <div className="lg:flex-grow flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <div>
 
@@ -120,7 +138,7 @@ const Banner = () => {
                 <div
                   ref={modalRef}
                   role="alert"
-                  className="container mx-auto w-11/12 md:w-2/3 max-w-lg modal-content"
+                  className="mx-auto w-11/12 md:w-2/3 max-w-lg modal-content"
                   data-aos="zoom-in"
                   data-aos-duration="600"
                 >
@@ -187,7 +205,7 @@ const Banner = () => {
                     </div>
                     {/* Message Part Start */}
                     <div className="flex items-center justify-start w-full">
-                      <button
+                      <button onSubmit={handlesubmit}
                         type="submit"
                         className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-priColor rounded text-textWhite px-8 py-2 text-sm"
                       >
