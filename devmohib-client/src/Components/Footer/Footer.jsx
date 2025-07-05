@@ -4,7 +4,7 @@ import logo from "../../assets/devmohib.png";
 const Footer = () => {
   return (
     <footer className="border-t border-borderPri">
-      <div className="container px-6 py-12 mx-auto">
+      <div className="px-6 py-12 mx-auto">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
           <div className="sm:col-span-2">
             <h1 className="max-w-lg text-xl font-semibold tracking-tight text-textColor xl:text-2xl">

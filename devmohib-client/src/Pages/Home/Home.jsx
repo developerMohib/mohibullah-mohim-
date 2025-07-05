@@ -12,7 +12,7 @@ const Home = () => {
   // TO DO => Hire me button make clickable
   
   return (
-    <div className="container mx-auto px-6 py-4">
+    <div className="mx-auto px-6 py-4">
       <Hero />
       <Banner />
       <About />
