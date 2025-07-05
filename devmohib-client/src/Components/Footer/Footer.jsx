@@ -10,7 +10,7 @@ const Footer = () => {
     const email = e.target.email.value;
     try {
       const response = await axiosInstance.post('/api/subscribe', { email });
-      console.log(response)
+      
       if (response?.data.success) {
         toast.success(response?.data.message);
         e.target.reset();
