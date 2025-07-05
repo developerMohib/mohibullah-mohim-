@@ -1,11 +1,14 @@
-const HeadingText = ({ 
-  mainTitle, 
-  highlightTitle, 
-  mainDescription, 
-  highlightDescription 
+const HeadingText = ({
+  mainTitle,
+  highlightTitle,
+  mainDescription,
+  highlightDescription,intro
 }) => {
   return (
-    <div className="w-full lg:w-1/2 mx-auto text-center">
+    <div className="w-full lg:w-3/5 mx-auto text-center">
+      <div className="text-center my-4">
+        <code> {intro} </code>
+      </div>
       <h1 className="text-3xl font-semibold text-textColor lg:text-4xl">
         {mainTitle} <span className="text-terColor">{highlightTitle}</span>
       </h1>

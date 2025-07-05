@@ -2,8 +2,8 @@ import HeadingText from "../Reuseable/HeadingText";
 
 const Service = () => {
   return (
-    <section className="md:mt-10" >
-      <HeadingText mainTitle={"Revamp Your Website in"} highlightTitle={"Three Steps"} mainDescription={"Perfect for personal projects & small"} highlightDescription={"Full E-commerce Website with Product Management"} />
+    <section className="md:mt-24" >
+      <HeadingText mainTitle={"Revamp Your Website in"} highlightTitle={"Three Steps"} mainDescription={"Perfect for personal projects & small"} highlightDescription={"Full E-commerce Website with Product Management"} intro={"Services - What i provided to my company"} />
       <div id="service" className="mx-auto px-4 sm:px-6 lg:px-8 pb-8">
 
         <h2 className="text-2xl font-semibold sm:text-3xl text-center text-textColor">

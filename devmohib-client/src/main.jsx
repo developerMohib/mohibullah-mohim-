@@ -9,6 +9,10 @@ import {
   QueryClient,
   QueryClientProvider
 } from '@tanstack/react-query'
+import BlogDetails from "./Pages/blogDtails/BlogDetails.jsx";
+import Home from "./Pages/Home/Home.jsx";
+import AllProjects from "./Pages/allProjects/AllProjects.jsx";
+import ProjectDetails from "./Pages/projectDetails/projectDetails.jsx";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
@@ -17,6 +21,25 @@ const router = createBrowserRouter(
       path: "/",
       element: <Layout />,
       errorElement: <ErrorPage />,
+      children: [
+
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/all-projects",
+          element: <AllProjects />,
+        },
+        {
+          path: "/details/:id",
+          element: <BlogDetails />,
+        },
+        {
+          path: "/project-details/:id",
+          element: <ProjectDetails />,
+        },
+      ]
     },
     {
       path: "admin-login",

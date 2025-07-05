@@ -25,3 +25,25 @@ export const getBlogs = async (
     next(error);
   }
 };
+
+export const getOneBlog = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  const id = req?.params.id;
+  try {
+    const post = await BlogPost.findById(id);
+    if (!post) {
+      res.status(404).json({ message: 'Post not found' });
+      return;
+    }
+    res.status(200).json({
+      success: true,
+      data: post,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+    next(err);
+  }
+};

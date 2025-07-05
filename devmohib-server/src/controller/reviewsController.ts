@@ -8,6 +8,15 @@ export const getReviews = async (
 ) => {
   try {
     const reviews = await Review.find();
+    if (!reviews.length) {
+      res.status(404).json({
+        success: false,
+        message: 'No reviews found in the database.',
+        data: [],
+      });
+      return;
+    }
+
     res.status(200).json({
       success: true,
       message: 'Reviews are retrived successfully',
