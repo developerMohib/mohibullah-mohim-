@@ -50,7 +50,7 @@ export const getOneBlog = async (
     res.status(200).json({
       success: true,
       data: post,
-    }); 
+    });
   } catch (err) {
     res.status(500).json({ message: 'Server error' });
     next(err);

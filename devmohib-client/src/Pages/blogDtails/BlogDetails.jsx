@@ -14,7 +14,7 @@ const BlogDetails = () => {
 
     const { title, image, details } = blog?.data;
     return (
-        <main className="container mx-auto px-6 py-4">
+        <main className="mx-auto px-6 py-4">
             <div className="md:grid grid-cols-3">
                 <div className="col-span-2 px-4 mb-8">
                     <img src={image} alt="Featured Image" className="w-full h-64 object-cover rounded" />
