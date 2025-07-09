@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import subscriber from '../model/subscriberSchema';
 import { NextFunction } from 'express-serve-static-core';
+import subscriber from '../model/subscriberSchema';
 
 export const subscribe = async (
   req: Request,
