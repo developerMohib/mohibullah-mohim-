@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import { fetchOneById } from "../../utils/fetchOne";
 
-const ProjectDetails = () => {
+const ProjectsDetails = () => {
     const { id } = useParams();
     const { data: project = [], isLoading } = useQuery({
         queryKey: ['project', id],
@@ -63,7 +63,7 @@ const ProjectDetails = () => {
                 </div>
 
                 <div className="lg:mt-0 lg:col-span-5 lg:flex">
-                    <img className="h-full" src={image} alt="hero image" />
+                    <img src="https://demo.themesberg.com/landwind/images/hero.png" alt="hero image" />
                 </div>
             </div>
         </section>
@@ -71,4 +71,5 @@ const ProjectDetails = () => {
     );
 };
 
-export default ProjectDetails;
+
+export default ProjectsDetails;

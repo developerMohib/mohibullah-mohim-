@@ -13,7 +13,7 @@ import {
 import BlogDetails from "./Pages/blogDtails/BlogDetails.jsx";
 import Home from "./Pages/Home/Home.jsx";
 import AllProjects from "./Pages/allProjects/AllProjects.jsx";
-import ProjectDetails from "./Pages/projectDetails/projectDetails.jsx";
+import ProjectsDetails from "./Pages/projectDetails/ProjectsDetails.jsx";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
@@ -38,7 +38,7 @@ const router = createBrowserRouter(
         },
         {
           path: "/project-details/:id",
-          element: <ProjectDetails />,
+          element: <ProjectsDetails />,
         },
       ]
     },
