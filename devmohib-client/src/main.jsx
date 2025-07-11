@@ -14,6 +14,11 @@ import BlogDetails from "./Pages/blogDtails/BlogDetails.jsx";
 import Home from "./Pages/Home/Home.jsx";
 import AllProjects from "./Pages/allProjects/AllProjects.jsx";
 import ProjectsDetails from "./Pages/projectDetails/ProjectsDetails.jsx";
+import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
+import ProtectedRoute from "./Layout/ProtectedRoute.jsx";
+import BlogUpdate from "./Pages/blogUpdate/BlogUpdate.jsx";
+import ProjectsUpdate from "./Pages/projectsUpdate/ProjectsUpdate.jsx";
+import Dashboard from "./Pages/dashboard/Dashboard.jsx";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
@@ -45,6 +50,25 @@ const router = createBrowserRouter(
     {
       path: "admin-login",
       element: <AdminLogin />,
+    },
+    {
+      path: "admin",
+      element: <ProtectedRoute><AdminDashboard /></ProtectedRoute>,
+      children: [
+        // Other protected admin routes can go here
+        {
+          index:true ,
+          element: <Dashboard/>
+        },
+        {
+          path:"blog-update",
+          element: <BlogUpdate/>
+        },
+        {
+          path: "projects-update",
+          element: <ProjectsUpdate/>
+        }
+      ]
     },
   ],
   {
