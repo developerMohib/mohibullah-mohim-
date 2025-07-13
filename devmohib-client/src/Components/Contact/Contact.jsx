@@ -118,7 +118,7 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full bg-placeholer rounded border border-gray-300 focus:border-terColor focus:ring-1 focus:ring-terColor text-base outline-none text-textColor py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-placeholder rounded border border-gray-300 focus:border-terColor focus:ring-1 focus:ring-terColor text-base outline-none text-textColor py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
               <div className="relative mb-4">
@@ -132,7 +132,7 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full bg-placeholer rounded border border-gray-300 focus:border-terColor focus:ring-1 focus:ring-terColor text-base outline-none text-textColor py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-placeholder rounded border border-gray-300 focus:border-terColor focus:ring-1 focus:ring-terColor text-base outline-none text-textColor py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
               <div className="relative mb-4">
@@ -145,7 +145,7 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
-                  className="w-full bg-placeholer rounded border border-gray-300 focus:border-terColor focus:ring-1 focus:ring-terColor h-32 text-base outline-none text-textColor py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-placeholder rounded border border-gray-300 focus:border-terColor focus:ring-1 focus:ring-terColor h-32 text-base outline-none text-textColor py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                 ></textarea>
               </div>
               <button

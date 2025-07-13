@@ -1,6 +1,59 @@
-import React from 'react';
+import useProjects from "../../hook/useProjects";
 
+const projec = [
+    {
+        id: 1,
+        name: "Tom Cook",
+        email: "tom.cook@example.com",
+        position: "Senior Developer",
+        category: "Engineering",
+        status: "Active",
+        image:
+            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    }, {
+        id: 2,
+        name: "Sarah Johnson",
+        email: "sarah.johnson@example.com",
+        position: "Product Designer",
+        category: "Design",
+        status: "Active",
+        image:
+            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    }, {
+        id: 3,
+        name: "Michael Roberts",
+        email: "michael.roberts@example.com",
+        position: "Marketing Manager",
+        category: "Marketing",
+        status: "On Leave",
+        image:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    },
+    {
+        id: 4,
+        name: "Lisa Wang",
+        email: "lisa.wang@example.com",
+        position: "Sales Director",
+        category: "Sales",
+        status: "Active",
+        image:
+            "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    },
+    {
+        id: 5,
+        name: "David Wilson",
+        email: "david.wilson@example.com",
+        position: "Frontend Developer",
+        category: "Engineering",
+        status: "Inactive",
+        image:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    },
+]
 const ProjectsUpdate = () => {
+      const { data: projects = [], isPending, isError, error } = useProjects();
+  if (isPending) return <p>Loading projects...</p>;
+  if (isError) return <p>Error: {error.message}</p>;
     return (
         <section>
             <div className="w-full flex items-center justify-center min-h-full p-2">
@@ -10,11 +63,11 @@ const ProjectsUpdate = () => {
                         <div className="p-6 border-b border-gray-200">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                                 <div>
-                                    <h2 className="text-xl font-bold text-gray-800">My Projects</h2>
-                                    <p className="text-gray-500 mt-1">Manage your Projects and their account permissions here.</p>
+                                    <h2 className="text-xl font-bold text-textColor">My Projects</h2>
+                                    <p className="text-textColor mt-1">Manage all Projects and their permissions here.</p>
                                 </div>
                                 <div className="mt-4 md:mt-0">
-                                    <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-150 ease-in-out">
+                                    <button className="bg-priColor hover:bg-terColor text-textColor font-medium py-2 px-4 rounded-lg transition duration-150 ease-in-out">
                                         Add Projects
                                     </button>
                                 </div>
@@ -27,11 +80,11 @@ const ProjectsUpdate = () => {
                                             <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                                         </svg>
                                     </div>
-                                    <input type="text" className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full " placeholder="Search members..." />
+                                    <input type="text" className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full text-placeholder" placeholder="Search projects..." />
                                 </div>
                                 <div>
                                     <select className="border border-gray-300 rounded-lg px-4 py-2  w-full sm:w-auto">
-                                        <option value>All Departments</option>
+                                        <option value>All Projects</option>
                                         <option value="engineering">Engineering</option>
                                         <option value="design">Design</option>
                                         <option value="marketing">Marketing</option>
@@ -45,169 +98,73 @@ const ProjectsUpdate = () => {
                             <table className="min-w-full divide-y divide-gray-200">
                                 <thead className="bg-gray-50">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Name
+                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-textColor uppercase tracking-wider">
+                                            Project Name
                                         </th>
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Role
+                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-textColor uppercase tracking-wider">
+                                            Last Update
                                         </th>
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Department
+                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-textColor uppercase tracking-wider">
+                                            Category
                                         </th>
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Status
-                                        </th>
-                                        <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-textColor uppercase tracking-wider">
                                             Actions
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
-                                    {/* Row 1 */}
-                                    <tr className="hover:bg-gray-50 transition-colors duration-150">
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <div className="h-10 w-10 flex-shrink-0">
-                                                    <img className="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt />
-                                                </div>
-                                                <div className="ml-4">
-                                                    <div className="text-sm font-medium text-gray-900">Tom Cook</div>
-                                                    <div className="text-sm text-gray-500">tom.cook@example.com</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Senior Developer</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Engineering</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                Active
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                            <a href="#" className="text-red-600 hover:text-red-900">Delete</a>
-                                        </td>
-                                    </tr>
-                                    {/* Row 2 */}
-                                    <tr className="hover:bg-gray-50 transition-colors duration-150">
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <div className="h-10 w-10 flex-shrink-0">
-                                                    <img className="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt />
-                                                </div>
-                                                <div className="ml-4">
-                                                    <div className="text-sm font-medium text-gray-900">Sarah Johnson</div>
-                                                    <div className="text-sm text-gray-500">sarah.johnson@example.com</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Product Designer</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Design</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                Active
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                            <a href="#" className="text-red-600 hover:text-red-900">Delete</a>
-                                        </td>
-                                    </tr>
-                                    {/* Row 3 */}
-                                    <tr className="hover:bg-gray-50 transition-colors duration-150">
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <div className="h-10 w-10 flex-shrink-0">
-                                                    <img className="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt />
-                                                </div>
-                                                <div className="ml-4">
-                                                    <div className="text-sm font-medium text-gray-900">Michael Roberts</div>
-                                                    <div className="text-sm text-gray-500">michael.roberts@example.com</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Marketing Manager</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Marketing</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                On Leave
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                            <a href="#" className="text-red-600 hover:text-red-900">Delete</a>
-                                        </td>
-                                    </tr>
-                                    {/* Row 4 */}
-                                    <tr className="hover:bg-gray-50 transition-colors duration-150">
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <div className="h-10 w-10 flex-shrink-0">
-                                                    <img className="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt />
-                                                </div>
-                                                <div className="ml-4">
-                                                    <div className="text-sm font-medium text-gray-900">Lisa Wang</div>
-                                                    <div className="text-sm text-gray-500">lisa.wang@example.com</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Sales Director</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Sales</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                Active
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                            <a href="#" className="text-red-600 hover:text-red-900">Delete</a>
-                                        </td>
-                                    </tr>
-                                    {/* Row 5 */}
-                                    <tr className="hover:bg-gray-50 transition-colors duration-150">
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="flex items-center">
-                                                <div className="h-10 w-10 flex-shrink-0">
-                                                    <img className="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt />
-                                                </div>
-                                                <div className="ml-4">
-                                                    <div className="text-sm font-medium text-gray-900">David Wilson</div>
-                                                    <div className="text-sm text-gray-500">david.wilson@example.com</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Frontend Developer</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="text-sm text-gray-900">Engineering</div>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
-                                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                Inactive
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                            <a href="#" className="text-red-600 hover:text-red-900">Delete</a>
-                                        </td>
-                                    </tr>
+                                    {projects?.length > 0 ? (
+                                        projects?.map((project) => (
+                                            <tr
+                                                key={project.id}
+                                                className="hover:bg-gray-50 transition duration-150"
+                                            >
+                                                <td className="px-6 py-4 whitespace-nowrap">
+                                                    <div className="flex items-center">
+                                                        <img
+                                                            className="h-10 w-10 rounded-full object-cover"
+                                                            src={project.image || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
+                                                            alt={project.projectName}
+                                                        />
+                                                        <div className="ml-4">
+                                                            <div className="text-sm font-medium text-gray-900">
+                                                                {project.projectName}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className="px-6 py-4 text-sm text-gray-900">
+                                                    {new Date(project.completionDate).toLocaleDateString()}
+                                                </td>
+                                                <td className="px-6 py-4 text-sm text-gray-900">
+                                                   project category
+                                                </td>
+                                                <td className="px-6 py-4 text-right text-sm font-medium">
+                                                    <a
+                                                        href="#"
+                                                        className="text-indigo-600 hover:text-indigo-900 mr-3"
+                                                    >
+                                                        Edit
+                                                    </a>
+                                                    <a
+                                                        href="#"
+                                                        className="text-red-600 hover:text-red-900"
+                                                    >
+                                                        Delete
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td
+                                                colSpan={5}
+                                                className="px-6 py-4 text-center text-textColor"
+                                            >
+                                                No projects found.
+                                            </td>
+                                        </tr>
+                                    )}
                                 </tbody>
                             </table>
                         </div>
@@ -221,7 +178,7 @@ const ProjectsUpdate = () => {
                                 </div>
                                 <div>
                                     <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-                                        <a href="#" className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                        <a href="#" className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-textColor hover:bg-gray-50">
                                             <span className="sr-only">Previous</span>
                                             <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                 <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -245,7 +202,7 @@ const ProjectsUpdate = () => {
                                         <a href="#" className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
                                             9
                                         </a>
-                                        <a href="#" className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                        <a href="#" className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-textColor hover:bg-gray-50">
                                             <span className="sr-only">Next</span>
                                             <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                 <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
