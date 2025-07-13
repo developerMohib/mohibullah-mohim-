@@ -19,6 +19,7 @@ import ProtectedRoute from "./Layout/ProtectedRoute.jsx";
 import BlogUpdate from "./Pages/blogUpdate/BlogUpdate.jsx";
 import ProjectsUpdate from "./Pages/projectsUpdate/ProjectsUpdate.jsx";
 import Dashboard from "./Pages/dashboard/Dashboard.jsx";
+import Subscriber from "./Pages/subscriber/Subscriber.jsx";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
@@ -58,15 +59,19 @@ const router = createBrowserRouter(
         // Other protected admin routes can go here
         {
           index:true ,
-          element: <Dashboard/>
+          element: <Dashboard/>,
         },
         {
           path:"blog-update",
-          element: <BlogUpdate/>
+          element: <BlogUpdate/>,
         },
         {
           path: "projects-update",
-          element: <ProjectsUpdate/>
+          element: <ProjectsUpdate/>,
+        },
+        {
+          path: "subscriber",
+          element:<Subscriber/>,
         }
       ]
     },
