@@ -3,19 +3,19 @@ import React from 'react';
 const ProjectsUpdate = () => {
     return (
         <section>
-            <div className="w-full bg-black flex items-center justify-center min-h-full p-2">
+            <div className="w-full flex items-center justify-center min-h-full p-2">
                 <div className="container max-w-6xl">
-                    <div className="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div className="rounded-xl shadow-md overflow-hidden">
                         {/* Table Header */}
                         <div className="p-6 border-b border-gray-200">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                                 <div>
-                                    <h2 className="text-xl font-bold text-gray-800">Team Members</h2>
-                                    <p className="text-gray-500 mt-1">Manage your team members and their account permissions here.</p>
+                                    <h2 className="text-xl font-bold text-gray-800">My Projects</h2>
+                                    <p className="text-gray-500 mt-1">Manage your Projects and their account permissions here.</p>
                                 </div>
                                 <div className="mt-4 md:mt-0">
                                     <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-150 ease-in-out">
-                                        Add Member
+                                        Add Projects
                                     </button>
                                 </div>
                             </div>
