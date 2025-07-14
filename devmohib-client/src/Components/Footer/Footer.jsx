@@ -104,9 +104,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="my-6 border-borderPri md:my-8" />
-
-        <div className="flex items-center justify-between  ">
+        <div className="flex items-center justify-between mt-16">
           <Link to="/">
             <img
               className="w-auto h-7"

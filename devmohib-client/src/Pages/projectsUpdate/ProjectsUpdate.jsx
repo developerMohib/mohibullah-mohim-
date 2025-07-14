@@ -1,59 +1,9 @@
 import useProjects from "../../hook/useProjects";
 
-const projec = [
-    {
-        id: 1,
-        name: "Tom Cook",
-        email: "tom.cook@example.com",
-        position: "Senior Developer",
-        category: "Engineering",
-        status: "Active",
-        image:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    }, {
-        id: 2,
-        name: "Sarah Johnson",
-        email: "sarah.johnson@example.com",
-        position: "Product Designer",
-        category: "Design",
-        status: "Active",
-        image:
-            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    }, {
-        id: 3,
-        name: "Michael Roberts",
-        email: "michael.roberts@example.com",
-        position: "Marketing Manager",
-        category: "Marketing",
-        status: "On Leave",
-        image:
-            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    {
-        id: 4,
-        name: "Lisa Wang",
-        email: "lisa.wang@example.com",
-        position: "Sales Director",
-        category: "Sales",
-        status: "Active",
-        image:
-            "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    {
-        id: 5,
-        name: "David Wilson",
-        email: "david.wilson@example.com",
-        position: "Frontend Developer",
-        category: "Engineering",
-        status: "Inactive",
-        image:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-]
 const ProjectsUpdate = () => {
-      const { data: projects = [], isPending, isError, error } = useProjects();
-  if (isPending) return <p>Loading projects...</p>;
-  if (isError) return <p>Error: {error.message}</p>;
+    const { data: projects = [], isPending, isError, error } = useProjects();
+    if (isPending) return <p>Loading projects...</p>;
+    if (isError) return <p>Error: {error.message}</p>;
     return (
         <section>
             <div className="w-full flex items-center justify-center min-h-full p-2">
@@ -137,7 +87,7 @@ const ProjectsUpdate = () => {
                                                     {new Date(project.completionDate).toLocaleDateString()}
                                                 </td>
                                                 <td className="px-6 py-4 text-sm text-gray-900">
-                                                   project category
+                                                    project category
                                                 </td>
                                                 <td className="px-6 py-4 text-right text-sm font-medium">
                                                     <a
