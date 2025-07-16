@@ -36,7 +36,7 @@ const Footer = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="px-4 py-2 text-textColor placeholder-gray-500 bg-placeholer border rounded-md focus:border-terColor focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-terColor"
+                  className="px-4 py-2 text-textColor placeholder-gray-500 bg-placeholder border rounded-md focus:border-terColor focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-terColor"
                   placeholder="Email Address"
                 />
 
@@ -104,9 +104,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="my-6 border-borderPri md:my-8" />
-
-        <div className="flex items-center justify-between  ">
+        <div className="flex items-center justify-between mt-16">
           <Link to="/">
             <img
               className="w-auto h-7"
