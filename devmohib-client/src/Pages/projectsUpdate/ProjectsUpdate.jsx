@@ -66,7 +66,7 @@ const ProjectsUpdate = () => {
                                     {projects?.length > 0 ? (
                                         projects?.map((project) => (
                                             <tr
-                                                key={project.id}
+                                                key={project._id}
                                                 className="hover:bg-gray-50 transition duration-150"
                                             >
                                                 <td className="px-6 py-4 whitespace-nowrap">

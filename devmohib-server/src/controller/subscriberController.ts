@@ -46,3 +46,25 @@ export const subscribe = async (
     next(error);
   }
 };
+
+export const allSubscriber = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const result = await subscriber.find();
+    res.status(200).json({
+      success: true,
+      message: 'All subscriber retrived successfully',
+      data: result,
+    });
+  } catch (error) {
+    console.error('Subscription Find error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to process subscription',
+    });
+    next(error);
+  }
+};
