@@ -60,7 +60,7 @@ const Hero = () => {
       data-aos-anchor-placement="center-bottom"
       className="flex items-center justify-center"
     >
-      <div className="grid md:grid-cols-5 grid-cols-1 items-center gap-10 md:px-10 pt-10">
+      <div className="grid md:grid-cols-5 grid-cols-1 items-center gap-10 md:px-2 pt-10">
         <div className="md:col-span-3">
           <h1 className="mb-2 text-3xl font-bold text-textColor">
             <span className="text-priColor">Hi, </span >I am Junior{" "}

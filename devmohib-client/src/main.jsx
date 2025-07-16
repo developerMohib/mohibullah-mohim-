@@ -13,7 +13,13 @@ import {
 import BlogDetails from "./Pages/blogDtails/BlogDetails.jsx";
 import Home from "./Pages/Home/Home.jsx";
 import AllProjects from "./Pages/allProjects/AllProjects.jsx";
-import ProjectDetails from "./Pages/projectDetails/projectDetails.jsx";
+import ProjectsDetails from "./Pages/projectDetails/ProjectsDetails.jsx";
+import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
+import ProtectedRoute from "./Layout/ProtectedRoute.jsx";
+import BlogUpdate from "./Pages/blogUpdate/BlogUpdate.jsx";
+import ProjectsUpdate from "./Pages/projectsUpdate/ProjectsUpdate.jsx";
+import Dashboard from "./Pages/dashboard/Dashboard.jsx";
+import Subscriber from "./Pages/subscriber/Subscriber.jsx";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
@@ -38,13 +44,36 @@ const router = createBrowserRouter(
         },
         {
           path: "/project-details/:id",
-          element: <ProjectDetails />,
+          element: <ProjectsDetails />,
         },
       ]
     },
     {
       path: "admin-login",
       element: <AdminLogin />,
+    },
+    {
+      path: "admin",
+      element: <ProtectedRoute><AdminDashboard /></ProtectedRoute>,
+      children: [
+        // Other protected admin routes can go here
+        {
+          index:true ,
+          element: <Dashboard/>,
+        },
+        {
+          path:"blog-update",
+          element: <BlogUpdate/>,
+        },
+        {
+          path: "projects-update",
+          element: <ProjectsUpdate/>,
+        },
+        {
+          path: "subscriber",
+          element:<Subscriber/>,
+        }
+      ]
     },
   ],
   {
