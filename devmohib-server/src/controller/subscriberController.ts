@@ -68,3 +68,34 @@ export const allSubscriber = async (
     next(error);
   }
 };
+
+export const deleteSubscriber = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { id } = req.body;
+    console.log('email subs',id)
+    const result = await subscriber.deleteOne({ _id : id});
+console.log('80 subscribe',)
+    if (result.deletedCount === 0) {
+      res
+        .status(404)
+        .json({ error: 'No subscriber found with this email' });
+        return
+    }
+  
+
+    res
+      .status(200)
+      .json({ success: true, message: 'Subscriber deleted successfully' });
+  } catch (error) {
+    console.error('Failled to delete this one:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to delete subscription',
+    });
+    next(error);
+  }
+};

@@ -1,7 +1,8 @@
 import useSubscriber from "../../hook/useSubscriber";
-
+import { deleteById } from "../../utils/fetchOne";
+import Swal from 'sweetalert2'
 const Subscriber = () => {
-    const { data: subscriber, isLoading, isPending } = useSubscriber();
+    const { data: subscriber, isLoading, isPending, refetch } = useSubscriber();
     if (isPending || isLoading) return "Loading...";
 
 
@@ -10,6 +11,49 @@ const Subscriber = () => {
         const namePart = email.split('@')[0];
         return namePart.replace(/[^a-zA-Z]/g, '');
     };
+
+    const handleEdit = async (id) => {
+        console.log(' id', id)
+    }
+    const handleDelete = async (id, email) => {
+        const result = await Swal.fire({
+            title: 'Are you sure?',
+            text: `Delete subscriber with email ${email}?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+        });
+
+        if (result.isConfirmed) {
+            try {
+                const response = await deleteById('delete-subscriber', id);
+                if (response?.success) {
+                    await Swal.fire({
+                        title: 'Deleted!',
+                        text: 'Subscriber has been deleted.',
+                        icon: 'success',
+                    });
+                    refetch(); // Refetch data after successful deletion
+                } else {
+                    await Swal.fire({
+                        title: 'Not Found',
+                        text: 'No subscriber found with this ID.',
+                        icon: 'error',
+                    });
+                }
+            } catch (error) {
+                console.error('Error deleting subscriber:', error);
+                await Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to delete subscriber.',
+                    icon: 'error',
+                });
+            }
+        }
+    };
+
     
     return (
         <section>
@@ -49,13 +93,13 @@ const Subscriber = () => {
                                     <td className="py-3 px-6 text-left">Subscriber</td>
                                     <td className="py-3 px-6 text-center">
                                         <div className="flex item-center justify-center">
-                                            <button className="w-4 mr-2 transform hover:text-blue-500 hover:scale-110">
+                                            <button onClick={() => handleEdit(user._id)} className="w-4 mr-2 transform hover:text-blue-500 hover:scale-110">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                                 </svg>
                                             </button>
-                                            <button className="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+                                            <button onClick={() => handleDelete(user._id, user.email)} className="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                                         d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />

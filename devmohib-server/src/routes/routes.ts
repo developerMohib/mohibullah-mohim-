@@ -3,7 +3,7 @@ import { sendMail } from '../controller/sendmailController';
 import { getReviews } from '../controller/reviewsController';
 import { getBlogs, getOneBlog } from '../controller/blogsController';
 import { getOneProject, getProjects } from '../controller/projectController';
-import { subscribe,allSubscriber } from '../controller/subscriberController';
+import { subscribe,allSubscriber, deleteSubscriber } from '../controller/subscriberController';
 const router = express.Router();
 // email sender routes
 router.post('/sendMail', sendMail);
@@ -21,5 +21,6 @@ router.get('/project-details/:id', getOneProject);
 
 router.post('/subscribe',subscribe)
 router.get('/subscriber',allSubscriber)
+router.delete('/delete-subscriber',deleteSubscriber)
 
 export const routes = router;
