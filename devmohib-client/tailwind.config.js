@@ -16,7 +16,7 @@ export default {
         textColor: 'var(--text-color)', // black
         textWhite: 'var(--text-fixed-white)', // white
         textBlack: 'var(--text-fixed-black)', // black
-        placeholer :'var(--placeholder-color)'
+        placeholder :'var(--placeholder-color)'
       }
     },
   },

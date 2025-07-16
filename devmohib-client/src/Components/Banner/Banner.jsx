@@ -94,7 +94,7 @@ const Banner = () => {
       data-aos-anchor-placement="center-bottom"
       className="body-font relative text-textColor"
     >
-      <div className="mx-auto flex px-5 py-5 md:flex-row flex-col items-center">
+      <div className="mx-auto flex py-5 md:flex-row flex-col items-center">
         <div className="lg:flex-grow flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <div>
 
