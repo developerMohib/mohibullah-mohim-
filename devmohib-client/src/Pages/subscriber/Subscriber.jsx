@@ -1,6 +1,5 @@
 import useSubscriber from "../../hook/useSubscriber";
 import { deleteById } from "../../utils/fetchOne";
-import Swal from 'sweetalert2'
 import { toast } from 'react-toastify';
 import { handleDelete } from "../../utils/handleDelete";
 const Subscriber = () => {
