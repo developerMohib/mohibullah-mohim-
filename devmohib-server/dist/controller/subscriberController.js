@@ -76,9 +76,7 @@ exports.allSubscriber = allSubscriber;
 const deleteSubscriber = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.body;
-        console.log('email subs', id);
         const result = yield subscriberSchema_1.default.deleteOne({ _id: id });
-        console.log('80 subscribe');
         if (result.deletedCount === 0) {
             res
                 .status(404)

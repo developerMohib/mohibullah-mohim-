@@ -76,9 +76,7 @@ export const deleteSubscriber = async (
 ) => {
   try {
     const { id } = req.body;
-    console.log('email subs',id)
     const result = await subscriber.deleteOne({ _id : id});
-console.log('80 subscribe',)
     if (result.deletedCount === 0) {
       res
         .status(404)
