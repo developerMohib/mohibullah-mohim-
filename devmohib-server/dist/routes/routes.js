@@ -22,4 +22,6 @@ router.get('/details/:id', blogsController_1.getOneBlog);
 router.get('/projects', projectController_1.getProjects);
 router.get('/project-details/:id', projectController_1.getOneProject);
 router.post('/subscribe', subscriberController_1.subscribe);
+router.get('/subscriber', subscriberController_1.allSubscriber);
+router.delete('/delete-subscriber', subscriberController_1.deleteSubscriber);
 exports.routes = router;

@@ -12,7 +12,7 @@ const useFetch = (endpoint, queryKey) => {
     }
   };
 
-  const { data, isPending, isError, error } = useQuery({
+  const { data, isPending, isError, error ,refetch} = useQuery({
     queryKey: [queryKey],
     queryFn: fetchData,
     onError: (err) => {
@@ -20,7 +20,7 @@ const useFetch = (endpoint, queryKey) => {
     },
   });
 
-  return { data, isPending, isError, error };
+  return { data, isPending, isError, error, refetch };
 };
 
 export default useFetch;
