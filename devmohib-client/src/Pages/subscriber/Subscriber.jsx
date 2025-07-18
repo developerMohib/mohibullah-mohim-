@@ -14,7 +14,8 @@ const Subscriber = () => {
     };
 
     const handleEdit = async (id) => {
-        console.log(' id', id)
+        console.log(' id', id);
+        toast.success(`I will send a email to ${id}`);
     }
 
     const onDelete = async (id, email) => {

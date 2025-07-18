@@ -1,32 +1,56 @@
 import { useState } from 'react';
 import useBlogs from '../../hook/useBlogs';
 import { RxCross1 } from "react-icons/rx";
-import { PiFilesThin } from "react-icons/pi";
-import { MdDelete } from "react-icons/md";
+import { toast } from 'react-toastify';
+import { useMutation } from '@tanstack/react-query';
+import { updateById } from '../../utils/fetchOne';
 
 const BlogUpdate = () => {
-    const { data: blogs, isLoading, isPending, refetch } = useBlogs();
 
+    const { data: blogs, isLoading, isPending, refetch } = useBlogs();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentBlog, setCurrentBlog] = useState(null);
 
+     // Mutation: update blog by ID
+    const { mutate: updateBlog } = useMutation({
+        
+        mutationFn: (updatedData) =>            
+            updateById('edit-blog', currentBlog?._id,updatedData),
+        onSuccess: () => {
+            toast.success('Blog updated successfully!');
+            setIsModalOpen(false);
+            refetch();
+        },
+        onError: (error) => {
+            toast.error('Failed to update blog: ' + error.message);
+        },
+    });
+
+    // Loading state
+    if (isLoading || isPending) return <p>Loading...</p>;
+
+    // When Edit button clicked
     const handleEditBlog = (blog) => {
         setCurrentBlog(blog);
         setIsModalOpen(true);
     };
 
-    if (isPending || isLoading) return "Loading...";
-    console.log('blog', blogs)
-
     const handleBlogUpdateSubmit = async (e) => {
         e.preventDefault();
-        const value = e.target;
-        const title = value.title.value;
-        const description = value.description.value;
-        const details = value.details.value;
-        // const image = image ;
-        console.log({ title, description, details })
-    }
+        const form = e.target;
+        const title = form.title.value;
+        const description = form.description.value;
+        const details = form.details.value;
+
+        const updatedData = { title, description, details };
+        console.table(updatedData)
+        updateBlog(updatedData); // Call mutation
+    };
+
+    // Placeholder delete
+    const handleDeleteBlog = async (id) => {
+        toast.success(`Need to delete blog with id: ${id}`);
+    };
 
     return (
         <section>
@@ -101,7 +125,9 @@ const BlogUpdate = () => {
                                                     >
                                                         Edit
                                                     </button>
-                                                    <button className="text-red-600 hover:text-red-900">Delete</button>
+                                                    <button
+                                                        onClick={() => handleDeleteBlog(blog._id)}
+                                                        className="text-red-600 hover:text-red-900">Delete</button>
                                                 </td>
                                             </tr>
                                         ))
