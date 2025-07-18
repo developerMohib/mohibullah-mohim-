@@ -12,3 +12,9 @@ export const deleteById = async (endpoint, id) => {
   });
   return data;
 };
+// Delete by id
+export const updateById = async (endpoint, id,updatadData) => {
+  const { data } = await instance.patch(`/api/${endpoint}/${id}`,{updatadData});
+  console.log('data feceone', data)
+  return data;
+};

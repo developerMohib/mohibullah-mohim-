@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOneBlog = exports.getBlogs = void 0;
+exports.updateOneBlog = exports.getOneBlog = exports.getBlogs = void 0;
 const blogSchema_1 = __importDefault(require("../model/blogSchema"));
 const getBlogs = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -55,3 +55,31 @@ const getOneBlog = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.getOneBlog = getOneBlog;
+const updateOneBlog = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // here logic
+        const id = req.params.id;
+        const updatedData = req.body;
+        console.log('udate dat', typeof updatedData);
+        const resultUpdate = yield blogSchema_1.default.updateOne({ _id: id }, {
+            $set: Object.assign(Object.assign({}, updatedData), { updatedAt: new Date() // Always update this field
+             }),
+            $setOnInsert: {
+                createdAt: new Date(),
+            }
+        }, {
+            upsert: true,
+        });
+        console.log('71 blog update', resultUpdate);
+        res.status(200).json({
+            success: true,
+            message: 'Blog Update successfully',
+            data: resultUpdate,
+        });
+    }
+    catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+exports.updateOneBlog = updateOneBlog;
