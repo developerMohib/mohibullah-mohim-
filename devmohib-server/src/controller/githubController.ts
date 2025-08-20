@@ -27,7 +27,7 @@ export const githubCommit = async (
   next: NextFunction,
 ) => {
   try {
-    const token = process.env.GITHUB_TOKEN || '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';
+    const token = process.env.GITHUB_ACCESS_TOKEN ;
 
     const response: AxiosResponse = await axios.get(
       `https://api.github.com/users/developerMohib/events`,

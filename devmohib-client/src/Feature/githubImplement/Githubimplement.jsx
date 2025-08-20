@@ -66,7 +66,7 @@ const Githubimplement = () => {
   return (
     <div>
       {/* Month Labels */}
-      <div className='flex gap-1 mb-1 justify-center'>
+      <div className='flex gap-1 mb-1 justify-center bg-red-200'>
         {weeks?.map((_, idx) => (
           <div className='w-4 text-center text-xs' key={idx} >
             {monthLabels[idx] || ''}
@@ -75,9 +75,9 @@ const Githubimplement = () => {
       </div>
 
       {/* Contribution Grid */}
-      <div style={{ display: 'flex', gap: '2px' }}>
+      <div className='flex gap-[2px]'>
         {weeks?.map((week, idx) => (
-          <div key={idx} style={{ display: 'flex', flexDirection: 'column' }}>
+          <div key={idx} className='flex flex-col'>
             {week}
           </div>
         ))}
