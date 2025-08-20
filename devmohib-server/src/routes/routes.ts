@@ -4,6 +4,7 @@ import { getReviews } from '../controller/reviewsController';
 import { getBlogs, getOneBlog, updateOneBlog } from '../controller/blogsController';
 import { getOneProject, getProjects } from '../controller/projectController';
 import { subscribe,allSubscriber, deleteSubscriber } from '../controller/subscriberController';
+import { githubCommit } from '../controller/githubController';
 const router = express.Router();
 // email sender routes
 router.post('/sendMail', sendMail);
@@ -23,5 +24,7 @@ router.get('/project-details/:id', getOneProject);
 router.post('/subscribe',subscribe)
 router.get('/subscriber',allSubscriber)
 router.delete('/delete-subscriber',deleteSubscriber)
+
+router.get('/contributions',githubCommit)
 
 export const routes = router;
