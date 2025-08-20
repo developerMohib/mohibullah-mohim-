@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import axios, { AxiosResponse } from 'axios';
+import config from '../config/config';
 interface GitHubEvent {
   id: string;
   type: string; // e.g., "PushEvent", "PullRequestEvent"
@@ -19,15 +20,14 @@ interface GitHubEvent {
   created_at: string; // ISO timestamp
 }
 
-
-
 export const githubCommit = async (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
   try {
-    const token = process.env.GITHUB_ACCESS_TOKEN;
+    // const token = process.env.GITHUB_ACCESS_TOKEN;
+    const token = config.githubToken;
 
     const response: AxiosResponse = await axios.get(
       `https://api.github.com/users/developerMohib/events`,
@@ -37,14 +37,14 @@ export const githubCommit = async (
     );
     const events = response.data;
     const contributions: Record<string, number> = {};
-    
-    events.forEach((event :GitHubEvent) => {
+
+    events.forEach((event: GitHubEvent) => {
       const date = new Date(event.created_at).toISOString().split('T')[0];
       contributions[date] = (contributions[date] || 0) + 1;
     });
     res.status(200).json({
-       success: true,
-      message: "Data fetched successfully",
+      success: true,
+      message: 'Data fetched successfully',
       data: contributions,
     });
   } catch (error) {
