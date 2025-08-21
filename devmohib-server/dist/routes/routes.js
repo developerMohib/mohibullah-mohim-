@@ -10,6 +10,7 @@ const reviewsController_1 = require("../controller/reviewsController");
 const blogsController_1 = require("../controller/blogsController");
 const projectController_1 = require("../controller/projectController");
 const subscriberController_1 = require("../controller/subscriberController");
+const commitController_1 = require("../controller/commitController");
 const router = express_1.default.Router();
 // email sender routes
 router.post('/sendMail', sendmailController_1.sendMail);
@@ -25,5 +26,5 @@ router.get('/project-details/:id', projectController_1.getOneProject);
 router.post('/subscribe', subscriberController_1.subscribe);
 router.get('/subscriber', subscriberController_1.allSubscriber);
 router.delete('/delete-subscriber', subscriberController_1.deleteSubscriber);
-router.get('/contributions');
+router.get('/contributions', commitController_1.gitCommit);
 exports.routes = router;

@@ -1,9 +1,17 @@
 import express from 'express';
 import { sendMail } from '../controller/sendmailController';
 import { getReviews } from '../controller/reviewsController';
-import { getBlogs, getOneBlog, updateOneBlog } from '../controller/blogsController';
+import {
+  getBlogs,
+  getOneBlog,
+  updateOneBlog,
+} from '../controller/blogsController';
 import { getOneProject, getProjects } from '../controller/projectController';
-import { subscribe,allSubscriber, deleteSubscriber } from '../controller/subscriberController';
+import {
+  subscribe,
+  allSubscriber,
+  deleteSubscriber,
+} from '../controller/subscriberController';
 import { gitCommit } from '../controller/commitController';
 const router = express.Router();
 // email sender routes
@@ -15,16 +23,16 @@ router.get('/reviews', getReviews);
 // blogs routes
 router.get('/blogs', getBlogs);
 router.get('/details/:id', getOneBlog);
-router.patch('/edit-blog/:id',updateOneBlog);
+router.patch('/edit-blog/:id', updateOneBlog);
 
 // projects routes
 router.get('/projects', getProjects);
 router.get('/project-details/:id', getOneProject);
 
-router.post('/subscribe',subscribe)
-router.get('/subscriber',allSubscriber)
-router.delete('/delete-subscriber',deleteSubscriber)
+router.post('/subscribe', subscribe);
+router.get('/subscriber', allSubscriber);
+router.delete('/delete-subscriber', deleteSubscriber);
 
-router.get('/contributions',gitCommit)
+router.get('/contributions', gitCommit);
 
 export const routes = router;
