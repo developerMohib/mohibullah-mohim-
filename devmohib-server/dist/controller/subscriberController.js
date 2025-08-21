@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.subscribe = void 0;
+exports.deleteSubscriber = exports.allSubscriber = exports.subscribe = void 0;
 const subscriberSchema_1 = __importDefault(require("../model/subscriberSchema"));
 const subscribe = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -54,3 +54,46 @@ const subscribe = (req, res, next) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.subscribe = subscribe;
+const allSubscriber = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield subscriberSchema_1.default.find();
+        res.status(200).json({
+            success: true,
+            message: 'All subscriber retrived successfully',
+            data: result,
+        });
+    }
+    catch (error) {
+        console.error('Subscription Find error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to process subscription',
+        });
+        next(error);
+    }
+});
+exports.allSubscriber = allSubscriber;
+const deleteSubscriber = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.body;
+        const result = yield subscriberSchema_1.default.deleteOne({ _id: id });
+        if (result.deletedCount === 0) {
+            res
+                .status(404)
+                .json({ error: 'No subscriber found with this email' });
+            return;
+        }
+        res
+            .status(200)
+            .json({ success: true, message: 'Subscriber deleted successfully' });
+    }
+    catch (error) {
+        console.error('Failled to delete this one:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to delete subscription',
+        });
+        next(error);
+    }
+});
+exports.deleteSubscriber = deleteSubscriber;

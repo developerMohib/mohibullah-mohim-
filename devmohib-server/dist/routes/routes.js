@@ -18,8 +18,11 @@ router.get('/reviews', reviewsController_1.getReviews);
 // blogs routes
 router.get('/blogs', blogsController_1.getBlogs);
 router.get('/details/:id', blogsController_1.getOneBlog);
+router.patch('/edit-blog/:id', blogsController_1.updateOneBlog);
 // projects routes
 router.get('/projects', projectController_1.getProjects);
 router.get('/project-details/:id', projectController_1.getOneProject);
 router.post('/subscribe', subscriberController_1.subscribe);
+router.get('/subscriber', subscriberController_1.allSubscriber);
+router.delete('/delete-subscriber', subscriberController_1.deleteSubscriber);
 exports.routes = router;
