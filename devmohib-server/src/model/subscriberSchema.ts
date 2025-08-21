@@ -18,17 +18,15 @@ const subscriberSchema: Schema = new Schema(
         validator: (email: string) => {
           return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         },
-        message: 'Please enter a valid email address'
-      }
-    }
+        message: 'Please enter a valid email address',
+      },
+    },
   },
   {
-    timestamps: true
-  }
+    timestamps: true,
+  },
 );
 
-// Add index for faster queries
-subscriberSchema.index({ email: 1 }, { unique: true });
 
 const subscriber = mongoose.model<ISubscriber>('Subscriber', subscriberSchema);
-export default subscriber
+export default subscriber;

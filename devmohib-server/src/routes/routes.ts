@@ -24,4 +24,6 @@ router.post('/subscribe',subscribe)
 router.get('/subscriber',allSubscriber)
 router.delete('/delete-subscriber',deleteSubscriber)
 
+router.get('/contributions',)
+
 export const routes = router;
