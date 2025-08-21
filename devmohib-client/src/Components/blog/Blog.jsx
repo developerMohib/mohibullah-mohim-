@@ -1,4 +1,3 @@
-import React from 'react';
 import HeadingText from '../Reuseable/HeadingText';
 import useBlogs from '../../hook/useBlogs';
 import { Link } from 'react-router-dom';

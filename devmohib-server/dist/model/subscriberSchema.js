@@ -35,13 +35,11 @@ const subscriberSchema = new mongoose_1.Schema({
             validator: (email) => {
                 return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
             },
-            message: 'Please enter a valid email address'
-        }
-    }
+            message: 'Please enter a valid email address',
+        },
+    },
 }, {
-    timestamps: true
+    timestamps: true,
 });
-// Add index for faster queries
-subscriberSchema.index({ email: 1 }, { unique: true });
 const subscriber = mongoose_1.default.model('Subscriber', subscriberSchema);
 exports.default = subscriber;
