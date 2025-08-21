@@ -4,7 +4,7 @@ import useGithubCommit from '../../hook/useGithubCommit';
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 const Githubimplement = () => {
-  const { data: commit = [], isPending, error } = useGithubCommit();
+  const { data: commit = {}, isPending, error } = useGithubCommit();
   const [contributions, setContributions] = useState({});
 
 
