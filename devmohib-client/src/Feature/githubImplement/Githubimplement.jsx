@@ -1,87 +1,52 @@
-import { useEffect, useState } from 'react';
 import './ContributionGraph.css';
 import useGithubCommit from '../../hook/useGithubCommit';
+import { useEffect, useState } from 'react';
+
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+const ContributionBox = ({ isActive, index }) => {
+  return (
+    <div
+      className={`w-8 h-8 border border-gray-600 ${isActive ? 'bg-green-500' : 'bg-gray-700'}`}
+    > <p className='text-white' >{index}</p> </div>
+  );
+};
+
 const Githubimplement = () => {
-  const { data: commit = {}, isPending, error } = useGithubCommit();
-  const [contributions, setContributions] = useState({});
-
-
+  const { data: commit = [], isPending, error } = useGithubCommit();
+  const [contributions, setContributions] = useState([]);
   console.log('data', commit)
+  console.log('data', commit.length)
 
 
-  // Update contributions state whenever commit data changes
-  useEffect(() => {
-    if (commit && typeof commit === 'object') {
-      setContributions(commit);
-    }
-  }, [commit]);
-
- const renderGrid = () => {
+  const fetchContributions = () => {
+    // You would replace this with actual data fetching logic
     const today = new Date();
-    const startDate = new Date(today.getFullYear() - 1, today.getMonth(), 1); // last year this month
-    const endDate = today;
-
-    // total number of days
-    const totalDays = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-    const weeks = Array.from({ length: Math.ceil(totalDays / 7) }, () => []);
-    const monthLabels= {}; // weekIndex -> month name
-
-    for (let i = 0; i < totalDays; i++) {
-      const dateObj = new Date(startDate.getTime() + i * 86400000);
-      const date = dateObj.toISOString().split('T')[0];
-      const dayOfWeek = dateObj.getDay(); // 0 = Sunday, 6 = Saturday
-      const weekIndex = Math.floor(i / 7);
-
-      // Store month label for first day of month
-      if (dateObj.getDate() === 1) {
-        monthLabels[weekIndex] = monthNames[dateObj.getMonth()];
-      }
-
-      const count = contributions[date] || 0;
-      const color =
-        count === 0 ? '#ebedf0' : count < 5 ? '#89e899' : '#2bc454';
-
-      weeks[weekIndex][dayOfWeek] = (
-        <div
-          key={date}
-          style={{
-            backgroundColor: color,
-            width: '12px',
-            height: '12px',
-            margin: '2px',
-          }}
-        />
-      );
+    const newContributions = [];
+    // Assume we check the last 7 days
+    for (let i = 0; i < 7; i++) {
+      const date = new Date();
+      date.setDate(today.getDate() - i);
+      // Randomizing contribution status (for demo purposes)
+      newContributions.push({ date: date.toLocaleDateString(), commit });
     }
-
-    return { weeks, monthLabels };
+    setContributions(newContributions);
   };
-  const { weeks, monthLabels } = renderGrid();
-  if (isPending) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  useEffect(() => {
+    fetchContributions();
+  }, []);
 
 
   return (
-    <div>
-      {/* Month Labels */}
-      <div className='flex gap-1 mb-1 justify-center'>
-        {weeks?.map((_, idx) => (
-          <div className='w-4 text-center text-xs' key={idx} >
-            {monthLabels[idx] || ''}
-          </div>
-        ))}
-      </div>
+    <div className="flex flex-wrap gap-1">
+      {commit?.map((cont, index) => (
 
-      {/* Contribution Grid */}
-      <div style={{ display: 'flex', gap: '2px' }}>
-        {weeks?.map((week, idx) => (
-          <div key={idx} style={{ display: 'flex', flexDirection: 'column' }}>
-            {week}
-          </div>
-        ))}
-      </div>
+        <div key={index}
+          className={`w-8 h-8 border border-gray-600`}
+        >
+          <p className='text-black' >{index + 1}</p>
+        </div>
+      ))}
     </div>
   );
 };

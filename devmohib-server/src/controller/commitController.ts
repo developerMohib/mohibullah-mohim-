@@ -10,14 +10,13 @@ export const gitCommit = async (
 ) => {
   try {
     const token = config.githubToken;
-    const url: string = 'https://api.github.com/users/developerMohib/events';
+    const url: string = 'https://api.github.com/users/developerMohib/events?per_page=100&page=1';
       const response: AxiosResponse = await axios.get(url, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
     const events = response?.data;
     const contributions: Record<string, number> = {};
-
     events.forEach((event: GitHubEvent) => {
       const date = new Date(event.created_at).toISOString().split('T')[0];
       contributions[date] = (contributions[date] || 0) + 1;
@@ -26,7 +25,7 @@ export const gitCommit = async (
     res.status(200).json({
       success: true,
       message: 'Data fetched successfully',
-      data: contributions,
+      data: events,
     });
   } catch (error) {
     next(error);

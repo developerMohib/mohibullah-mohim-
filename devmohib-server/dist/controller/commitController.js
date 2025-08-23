@@ -18,7 +18,7 @@ const config_1 = __importDefault(require("../config/config"));
 const gitCommit = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const token = config_1.default.githubToken;
-        const url = 'https://api.github.com/users/developerMohib/events';
+        const url = 'https://api.github.com/users/developerMohib/events?per_page=100&page=1';
         const response = yield axios_1.default.get(url, {
             headers: { Authorization: `Bearer ${token}` },
         });
@@ -31,7 +31,7 @@ const gitCommit = (req, res, next) => __awaiter(void 0, void 0, void 0, function
         res.status(200).json({
             success: true,
             message: 'Data fetched successfully',
-            data: contributions,
+            data: events,
         });
     }
     catch (error) {
