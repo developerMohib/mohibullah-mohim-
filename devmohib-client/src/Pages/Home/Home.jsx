@@ -7,7 +7,6 @@ import Contact from "../../Components/Contact/Contact";
 import Resume from "../../Components/Resume/Resume";
 import Reviews from "../../Components/reviews/Reviews";
 import Service from "../../Components/Service/Service";
-import Githubimplement from "../../Feature/githubImplement/Githubimplement";
 
 const Home = () => {
   // TO DO => Hire me button make clickable
@@ -21,7 +20,6 @@ const Home = () => {
       <Service />
       <Blog />
       <Reviews />
-      <Githubimplement />
       <Contact />
       <BeckToTop />
     </div>

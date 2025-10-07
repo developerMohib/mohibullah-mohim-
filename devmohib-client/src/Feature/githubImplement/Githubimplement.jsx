@@ -16,7 +16,7 @@ const Githubimplement = () => {
   const { data: commit = [], isPending, error } = useGithubCommit();
   const [contributions, setContributions] = useState([]);
   console.log('data', commit)
-  console.log('data', commit.length)
+  console.log('data', commit?.length)
 
 
   const fetchContributions = () => {
