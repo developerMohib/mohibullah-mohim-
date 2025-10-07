@@ -11,7 +11,7 @@ const Layout = () => {
   return (
     <div className="overflow-x:hidden bg-bgSecColor" >
       <CursorPointer />
-      <Preloader />
+      {/* <Preloader /> */}
       <Navbar />
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <Outlet />
